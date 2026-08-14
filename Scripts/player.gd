@@ -6,7 +6,7 @@ enum STATE {
 	JUMP,
 	FLOAT
 }
-const FALL_GRAVITY := 800.0
+const FALL_GRAVITY := 600.0
 const FALL_VELOCITY := 200.0
 const WALK_VELOCITY := 100.0
 const JUMP_VELOCITY := -400.0
@@ -19,6 +19,8 @@ var active_state := STATE.FALL
 
 func _ready() -> void:
 	switch_state(active_state)
+	
+	player_animation.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	process_state(delta)
@@ -39,6 +41,9 @@ func switch_state(to_state: STATE) -> void:
 		STATE.JUMP:
 			player_animation.play("Jump")
 			velocity.y = JUMP_VELOCITY
+			
+		STATE.FLOAT:
+			player_animation.play("Float")
 
 func process_state(delta: float) -> void:
 	match active_state:
@@ -66,7 +71,7 @@ func process_state(delta: float) -> void:
 		STATE.JUMP:
 			velocity.y = move_toward(velocity.y, 0, JUMP_DECELERATION * delta)
 			handle_movement()
-			
+				
 			if Input.is_action_just_released("Jump") or velocity.y >= 0:
 				velocity.y = move_toward(velocity.y, 0, 15000.0 * delta)
 				switch_state(STATE.FALL)
@@ -76,3 +81,7 @@ func handle_movement() -> void:
 	if input_direction:
 		player_animation.flip_h = input_direction > 0
 	velocity.x = input_direction * WALK_VELOCITY
+
+func _on_animation_finished():
+	if player_animation.animation == "Jump":
+		player_animation.play("Float")
