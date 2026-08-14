@@ -145,6 +145,7 @@ animations = [{
 script = ExtResource("1_kyqiw")
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1571172263]
+visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_qvbvp")
 
@@ -152,4 +153,4 @@ shape = SubResource("RectangleShape2D_qvbvp")
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Float"
-frame_progress = 0.7823197
+frame_progress = 0.37067023

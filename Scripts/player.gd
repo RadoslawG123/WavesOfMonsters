@@ -23,6 +23,10 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	process_state(delta)
 	move_and_slide()
+	
+	## Adding infomration to DEBUG OVERLAY
+	DebugOverlay.add_stat("Player", "Velocity X", roundf(velocity.x))
+	DebugOverlay.add_stat("Player", "Velocity Y", roundf(velocity.y))
 
 func switch_state(to_state: STATE) -> void:
 	active_state = to_state
@@ -64,7 +68,7 @@ func process_state(delta: float) -> void:
 			handle_movement()
 			
 			if Input.is_action_just_released("Jump") or velocity.y >= 0:
-				velocity.y = move_toward(velocity.y, 0, 10000.0 * delta)
+				velocity.y = move_toward(velocity.y, 0, 15000.0 * delta)
 				switch_state(STATE.FALL)
 				
 func handle_movement() -> void:
