@@ -3,14 +3,13 @@ extends CharacterBody2D
 enum STATE {
 	FALL,
 	FLOOR,
-	JUMP,
-	FLOAT
+	JUMP
 }
-const FALL_GRAVITY := 600.0
+const FALL_GRAVITY := 500.0
 const FALL_VELOCITY := 200.0
 const WALK_VELOCITY := 100.0
-const JUMP_VELOCITY := -400.0
-const JUMP_DECELERATION := 800.0
+const JUMP_VELOCITY := -300.0
+const JUMP_DECELERATION := 700.0
 
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
 
@@ -27,8 +26,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	## Adding infomration to DEBUG OVERLAY
-	DebugOverlay.add_stat("Player", "Velocity X", roundf(velocity.x))
-	DebugOverlay.add_stat("Player", "Velocity Y", roundf(velocity.y))
+	DebugOverlay.add_stat("Player", "State:", active_state)
+	DebugOverlay.add_stat("Player", "Velocity X:", roundf(velocity.x))
+	DebugOverlay.add_stat("Player", "Velocity Y:", roundf(velocity.y))
 
 func switch_state(to_state: STATE) -> void:
 	active_state = to_state
@@ -41,9 +41,6 @@ func switch_state(to_state: STATE) -> void:
 		STATE.JUMP:
 			player_animation.play("Jump")
 			velocity.y = JUMP_VELOCITY
-			
-		STATE.FLOAT:
-			player_animation.play("Float")
 
 func process_state(delta: float) -> void:
 	match active_state:
@@ -73,7 +70,10 @@ func process_state(delta: float) -> void:
 			handle_movement()
 				
 			if Input.is_action_just_released("Jump") or velocity.y >= 0:
-				velocity.y = move_toward(velocity.y, 0, 15000.0 * delta)
+				if velocity.y >= -100:
+					velocity.y *= 0.5
+				else:
+					velocity.y *= 0.3
 				switch_state(STATE.FALL)
 				
 func handle_movement() -> void:
