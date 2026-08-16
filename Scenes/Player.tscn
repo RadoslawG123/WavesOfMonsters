@@ -265,8 +265,8 @@ shape = SubResource("RectangleShape2D_qvbvp")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=357915967]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_r1vj8")
-animation = &"Jump_Double_Attack"
-frame = 1
+animation = &"Jump_Attack"
+frame = 3
 frame_progress = 1.0
 
 [node name="FirstAttackColldawn" type="Timer" parent="." unique_id=986353876]

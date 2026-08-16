@@ -55,6 +55,7 @@ func process_state(delta: float) -> void:
 	match active_state:
 		STATE.FALL:
 			velocity.y = move_toward(velocity.y, FALL_VELOCITY, FALL_GRAVITY * delta)
+			
 			handle_attack()
 			handle_movement()
 			
