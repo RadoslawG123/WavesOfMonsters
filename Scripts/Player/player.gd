@@ -44,7 +44,8 @@ func switch_state(to_state: STATE) -> void:
 	## State specific things that need to run only once upon entering the next state
 	match active_state:
 		STATE.FALL:
-			player_animation.play("Fall")
+			if player_animation.animation != "Jump_Attack" and player_animation.animation != "Jump_Double_Attack":
+				player_animation.play("Fall")
 			
 		STATE.JUMP:
 			player_animation.play("Jump")
@@ -54,9 +55,11 @@ func process_state(delta: float) -> void:
 	match active_state:
 		STATE.FALL:
 			velocity.y = move_toward(velocity.y, FALL_VELOCITY, FALL_GRAVITY * delta)
+			handle_attack()
 			handle_movement()
 			
 			if is_on_floor():
+				reset_attacks()
 				switch_state(STATE.FLOOR)
 			#elif Input.is_action_just_pressed("Jump"):
 				#switch_state(STATE.JUMP)
@@ -70,16 +73,7 @@ func process_state(delta: float) -> void:
 			elif not attack_combo:
 				player_animation.play("Attack")
 			
-			if Input.is_action_just_pressed("Attack"):
-				if can_attack and not attack_combo:
-					first_attack_colldawn.start()
-					is_attacking = true
-				elif is_attacking:
-					attack_combo = true
-					
-				if not attack_combo:
-					can_attack = false
-			
+			handle_attack()
 			handle_movement()
 			
 			if not is_on_floor():
@@ -91,8 +85,10 @@ func process_state(delta: float) -> void:
 		
 		STATE.JUMP:
 			velocity.y = move_toward(velocity.y, 0, JUMP_DECELERATION * delta)
+			
+			handle_attack()
 			handle_movement()
-				
+
 			if Input.is_action_just_released("Jump") or velocity.y >= 0:
 				if velocity.y >= -100:
 					velocity.y *= 0.5
@@ -106,9 +102,24 @@ func handle_movement() -> void:
 		player_animation.flip_h = input_direction > 0
 	velocity.x = input_direction * WALK_VELOCITY
 
+func handle_attack() -> void:
+	if Input.is_action_just_pressed("Attack"):
+		if can_attack and not attack_combo:
+			if active_state == STATE.JUMP or active_state == STATE.FALL:
+				player_animation.play("Jump_Attack")
+				
+			first_attack_colldawn.start()
+			is_attacking = true
+		elif is_attacking:
+			attack_combo = true
+			
+		if not attack_combo:
+			can_attack = false
+
 func reset_attacks():
 	is_attacking = false
 	attack_combo = false
+	can_attack = true
 
 func _on_animation_finished():
 	if player_animation.animation == "Jump":
@@ -122,6 +133,19 @@ func _on_animation_finished():
 			
 	elif player_animation.animation == "Double_Attack":
 		reset_attacks()
+		
+	elif player_animation.animation == "Jump_Attack":
+		if attack_combo:
+			player_animation.play("Jump_Double_Attack")
+		else:
+			reset_attacks()
+			if active_state == STATE.FALL:
+				player_animation.play("Fall")
+			
+	elif player_animation.animation == "Jump_Double_Attack":
+		reset_attacks()
+		if active_state == STATE.FALL:
+				player_animation.play("Fall")
 
 
 func _on_first_attack_colldawn_timeout() -> void:

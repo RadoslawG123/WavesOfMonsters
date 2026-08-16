@@ -94,6 +94,14 @@ region = Rect2(72, 0, 36, 36)
 atlas = ExtResource("5_nn08x")
 region = Rect2(108, 0, 36, 36)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7x0b"]
+atlas = ExtResource("5_nn08x")
+region = Rect2(144, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kih0c"]
+atlas = ExtResource("5_nn08x")
+region = Rect2(180, 0, 36, 36)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_megsn"]
 atlas = ExtResource("4_5ixxa")
 region = Rect2(26, 0, 26, 26)
@@ -215,6 +223,17 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_u7x0b")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_kih0c")
+}],
+"loop": 0,
+"name": &"Jump_Double_Attack",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_megsn")
 }, {
@@ -246,7 +265,9 @@ shape = SubResource("RectangleShape2D_qvbvp")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=357915967]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_r1vj8")
-animation = &"Jump_Attack"
+animation = &"Jump_Double_Attack"
+frame = 1
+frame_progress = 1.0
 
 [node name="FirstAttackColldawn" type="Timer" parent="." unique_id=986353876]
 wait_time = 0.5
