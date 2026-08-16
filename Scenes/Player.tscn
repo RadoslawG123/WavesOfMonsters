@@ -1,12 +1,42 @@
 [gd_scene format=3 uid="uid://dxej5w0j47va1"]
 
-[ext_resource type="Script" uid="uid://cqf81kar3113d" path="res://Scripts/player.gd" id="1_kyqiw"]
+[ext_resource type="Script" uid="uid://cqf81kar3113d" path="res://Scripts/Player/player.gd" id="1_kyqiw"]
 [ext_resource type="Texture2D" uid="uid://elxvkgygmg6n" path="res://Assets/Player/Player_Idle.png" id="1_rpqav"]
+[ext_resource type="Texture2D" uid="uid://chp6cfqot5avx" path="res://Assets/Player/Player_Attack.png" id="2_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://b56k6ert87xs0" path="res://Assets/Player/Player_Jump.png" id="2_dewec"]
 [ext_resource type="Texture2D" uid="uid://b4gun12gwefvt" path="res://Assets/Player/Player_Walk.png" id="4_5ixxa"]
+[ext_resource type="Texture2D" uid="uid://c15mti2cbuuq6" path="res://Assets/Player/Player_Jump_Attack.png" id="5_nn08x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qvbvp"]
 size = Vector2(11, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lslt6"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qidb7"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_70hv0"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8flut"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utwlt"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x63xi"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2e8t"]
+atlas = ExtResource("2_5ixxa")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nn08x"]
 atlas = ExtResource("2_dewec")
@@ -48,6 +78,22 @@ region = Rect2(26, 0, 26, 26)
 atlas = ExtResource("2_dewec")
 region = Rect2(52, 0, 26, 26)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ulo2v"]
+atlas = ExtResource("5_nn08x")
+region = Rect2(0, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1iu4k"]
+atlas = ExtResource("5_nn08x")
+region = Rect2(36, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0x7a"]
+atlas = ExtResource("5_nn08x")
+region = Rect2(72, 0, 36, 36)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5v66d"]
+atlas = ExtResource("5_nn08x")
+region = Rect2(108, 0, 36, 36)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_megsn"]
 atlas = ExtResource("4_5ixxa")
 region = Rect2(26, 0, 26, 26)
@@ -70,6 +116,37 @@ region = Rect2(130, 0, 26, 26)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1vj8"]
 animations = [{
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_lslt6")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_qidb7")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_70hv0")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_8flut")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_utwlt")
+}],
+"loop": 0,
+"name": &"Attack",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_x63xi")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_i2e8t")
+}],
+"loop": 0,
+"name": &"Double_Attack",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_nn08x")
@@ -113,12 +190,29 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1e7my")
 }, {
-"duration": 1.0,
+"duration": 0.5,
 "texture": SubResource("AtlasTexture_arntx")
 }],
 "loop": 0,
 "name": &"Jump",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_ulo2v")
+}, {
+"duration": 0.2,
+"texture": SubResource("AtlasTexture_1iu4k")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_m0x7a")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_5v66d")
+}],
+"loop": 0,
+"name": &"Jump_Attack",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -152,4 +246,10 @@ shape = SubResource("RectangleShape2D_qvbvp")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=357915967]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_r1vj8")
-animation = &"Jump"
+animation = &"Jump_Attack"
+
+[node name="FirstAttackColldawn" type="Timer" parent="." unique_id=986353876]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="FirstAttackColldawn" to="." method="_on_first_attack_colldawn_timeout"]
