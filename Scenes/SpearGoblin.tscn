@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://c2qvma7ibv2be"]
+
+[ext_resource type="Texture2D" uid="uid://suwti2osihcp" path="res://Assets/Goblin/goblin_spear_walk_v2.png" id="1_vhm1d"]
+[ext_resource type="Script" uid="uid://c1mqinkanua58" path="res://Scripts/Universal/HealthComponent.gd" id="2_qn1ai"]
+[ext_resource type="Script" uid="uid://ch27wdpti7lrp" path="res://Scripts/Universal/Hurtbox.gd" id="3_257qn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qn1ai"]
+atlas = ExtResource("1_vhm1d")
+region = Rect2(0, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_257qn"]
+atlas = ExtResource("1_vhm1d")
+region = Rect2(22, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f3wi3"]
+atlas = ExtResource("1_vhm1d")
+region = Rect2(44, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_envap"]
+atlas = ExtResource("1_vhm1d")
+region = Rect2(66, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3fld"]
+atlas = ExtResource("1_vhm1d")
+region = Rect2(88, 0, 22, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qjsdq"]
+atlas = ExtResource("1_vhm1d")
+region = Rect2(110, 0, 22, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r1vj8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qn1ai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_257qn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f3wi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_envap")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3fld")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qjsdq")
+}],
+"loop": 1,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vhguj"]
+size = Vector2(9, 14)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1vj8"]
+size = Vector2(9, 14)
+
+[node name="SpearGoblin" type="CharacterBody2D" unique_id=431472173]
+
+[node name="Animation" type="AnimatedSprite2D" parent="." unique_id=896662133]
+sprite_frames = SubResource("SpriteFrames_r1vj8")
+animation = &"Walk"
+frame_progress = 0.81055963
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295]
+visible = false
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_vhguj")
+
+[node name="HealthComponent" type="Node" parent="." unique_id=1880108948]
+script = ExtResource("2_qn1ai")
+health_amount = 3
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1940742093]
+script = ExtResource("3_257qn")
+
+[node name="HurtboxCollider" type="CollisionShape2D" parent="Hurtbox" unique_id=767905543]
+visible = false
+position = Vector2(-0.5, 3)
+shape = SubResource("RectangleShape2D_r1vj8")
+
+[connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
