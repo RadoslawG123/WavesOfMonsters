@@ -6,13 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b56k6ert87xs0" path="res://Assets/Player/Player_Jump.png" id="2_dewec"]
 [ext_resource type="Texture2D" uid="uid://b4gun12gwefvt" path="res://Assets/Player/Player_Walk.png" id="4_5ixxa"]
 [ext_resource type="Texture2D" uid="uid://c15mti2cbuuq6" path="res://Assets/Player/Player_Jump_Attack.png" id="5_nn08x"]
-[ext_resource type="Script" uid="uid://c1mqinkanua58" path="res://Scripts/Universal/HealthComponent.gd" id="7_bhhdu"]
-[ext_resource type="Script" uid="uid://1h08xiuo8xh7" path="res://Scripts/Universal/Hitbox.gd" id="8_megsn"]
-[ext_resource type="Script" uid="uid://ch27wdpti7lrp" path="res://Scripts/Universal/Hurtbox.gd" id="9_megsn"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lslt6"]
-atlas = ExtResource("2_5ixxa")
-region = Rect2(0, 0, 32, 32)
+[ext_resource type="PackedScene" uid="uid://c2ip3m0bosu7l" path="res://Scenes/Universal/hitbox_1.tscn" id="8_yoq75"]
+[ext_resource type="PackedScene" uid="uid://c0iocryvpm0un" path="res://Scenes/Universal/hitbox_2.tscn" id="9_ksbbd"]
+[ext_resource type="PackedScene" uid="uid://bxmx6fmybo61p" path="res://Scenes/Universal/hurtbox.tscn" id="10_yoq75"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qidb7"]
 atlas = ExtResource("2_5ixxa")
@@ -125,9 +121,6 @@ region = Rect2(130, 0, 26, 26)
 [sub_resource type="SpriteFrames" id="SpriteFrames_r1vj8"]
 animations = [{
 "frames": [{
-"duration": 0.2,
-"texture": SubResource("AtlasTexture_lslt6")
-}, {
 "duration": 0.2,
 "texture": SubResource("AtlasTexture_qidb7")
 }, {
@@ -263,7 +256,7 @@ script = ExtResource("1_kyqiw")
 [node name="PlayerAnimation" type="AnimatedSprite2D" parent="." unique_id=357915967]
 unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_r1vj8")
-animation = &"Double_Attack"
+animation = &"Fall"
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1571172263]
 visible = false
@@ -274,35 +267,16 @@ shape = SubResource("RectangleShape2D_qvbvp")
 wait_time = 0.5
 one_shot = true
 
-[node name="HealthComponent" type="Node" parent="." unique_id=1354898952]
-script = ExtResource("7_bhhdu")
-health_amount = 3
-
-[node name="Hitbox1" type="Area2D" parent="." unique_id=319892035]
+[node name="Hitbox1" parent="." unique_id=498748019 instance=ExtResource("8_yoq75")]
 unique_name_in_owner = true
 position = Vector2(-3, 0)
-script = ExtResource("8_megsn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox1" unique_id=2063571151]
-visible = false
-polygon = PackedVector2Array(0, 0, 0, 4, 1, 4, 1, 7, 2, 7, 2, 9, 3, 9, 3, 10, 4, 10, 4, 11, 5, 11, 5, 12, 7, 12, 7, 13, 0, 13, 0, 12, -2, 12, -2, 11, -3, 11, -3, 10, -4, 10, -4, 9, -5, 9, -5, 8, -6, 8, -6, 6, -7, 6, -7, 4, -8, 4, -8, 0, -9, 0, -9, -8, -8, -8, -8, -11, -7, -11, -7, -12, -6, -12, -6, -13, -4, -13, -4, -14, 3, -14, 3, -13, 2, -13, 2, -12, 3, -12, 3, -9, 2, -9, 2, -8, 1, -8, 1, -5, 0, -5)
-
-[node name="Hitbox2" type="Area2D" parent="." unique_id=921272054]
+[node name="Hitbox2" parent="." unique_id=606897665 instance=ExtResource("9_ksbbd")]
 unique_name_in_owner = true
 position = Vector2(-5, 0)
-script = ExtResource("8_megsn")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hitbox2" unique_id=1637873991]
-visible = false
-polygon = PackedVector2Array(0, 0, 0, 2, 2, 2, 2, 7, 3, 7, 3, 8, 4, 8, 4, 9, 5, 9, 5, 10, 6, 10, 6, 12, -4, 12, -4, 10, -5, 10, -5, 9, -6, 9, -6, 7, -7, 7, -7, 4, -8, 4, -8, -5, -7, -5, -7, -7, -6, -7, -6, -8, -5, -8, -5, -10, -4, -10, -4, -11, -3, -11, -3, -12, -2, -12, -2, -13, 0, -13, 0, -14, 3, -14, 3, -15, 15, -15, 15, -14, 13, -14, 13, -13, 9, -13, 9, -12, 8, -12, 8, -11, 7, -11, 7, -10, 4, -10, 4, -9, 2, -9, 2, -7, 1, -7, 1, -4, 0, -4)
+[node name="Hurtbox" parent="." unique_id=1952516124 instance=ExtResource("10_yoq75")]
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=680927956]
-script = ExtResource("9_megsn")
-is_player = true
-
-[node name="HurtboxCollider" type="CollisionShape2D" parent="Hurtbox" unique_id=957856870]
-visible = false
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_qvbvp")
-
+[connection signal="animation_changed" from="PlayerAnimation" to="Hitbox1" method="_on_player_animation_changed"]
+[connection signal="animation_finished" from="PlayerAnimation" to="Hitbox1" method="_on_animation_finished"]
 [connection signal="timeout" from="FirstAttackColldawn" to="." method="_on_first_attack_colldawn_timeout"]

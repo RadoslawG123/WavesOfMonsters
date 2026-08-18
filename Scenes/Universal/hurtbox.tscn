@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bxmx6fmybo61p"]
+
+[ext_resource type="Script" uid="uid://ch27wdpti7lrp" path="res://Scripts/Universal/Hurtbox.gd" id="1_rnnan"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qvbvp"]
+size = Vector2(11, 14)
+
+[node name="Hurtbox" type="Area2D" unique_id=1952516124]
+script = ExtResource("1_rnnan")
+is_player = true
+
+[node name="HurtboxCollider" type="CollisionShape2D" parent="." unique_id=1161186668]
+visible = false
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_qvbvp")

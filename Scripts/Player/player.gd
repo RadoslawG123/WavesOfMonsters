@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 enum STATE {
 	FALL,
@@ -29,14 +30,14 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	## Adding infomration to DEBUG OVERLAY
-	DebugOverlay.add_stat("Player", "State:", active_state)
-	DebugOverlay.add_stat("Player", "Animation", player_animation.animation)
-	DebugOverlay.add_stat("Player", "attack_combo", attack_combo)
-	DebugOverlay.add_stat("Player", "is_attacking", is_attacking)
-	DebugOverlay.add_stat("Player", "can_attack", can_attack)
-	DebugOverlay.add_stat("Player", "AttackColldawn", first_attack_colldawn.time_left)
-	DebugOverlay.add_stat("Player", "Velocity X:", roundf(velocity.x))
-	DebugOverlay.add_stat("Player", "Velocity Y:", roundf(velocity.y))
+	#DebugOverlay.add_stat("Player", "State:", active_state)
+	#DebugOverlay.add_stat("Player", "Animation", player_animation.animation)
+	#DebugOverlay.add_stat("Player", "attack_combo", attack_combo)
+	#DebugOverlay.add_stat("Player", "is_attacking", is_attacking)
+	#DebugOverlay.add_stat("Player", "can_attack", can_attack)
+	#DebugOverlay.add_stat("Player", "AttackColldawn", first_attack_colldawn.time_left)
+	#DebugOverlay.add_stat("Player", "Velocity X:", roundf(velocity.x))
+	#DebugOverlay.add_stat("Player", "Velocity Y:", roundf(velocity.y))
 
 func switch_state(to_state: STATE) -> void:
 	active_state = to_state

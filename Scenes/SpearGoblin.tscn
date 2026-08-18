@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://c2qvma7ibv2be"]
 
+[ext_resource type="Script" uid="uid://b6f0gqml4aitx" path="res://Scripts/Enemies/spear_goblin.gd" id="1_f3wi3"]
 [ext_resource type="Texture2D" uid="uid://suwti2osihcp" path="res://Assets/Goblin/goblin_spear_walk_v2.png" id="1_vhm1d"]
 [ext_resource type="Script" uid="uid://c1mqinkanua58" path="res://Scripts/Universal/HealthComponent.gd" id="2_qn1ai"]
 [ext_resource type="Script" uid="uid://ch27wdpti7lrp" path="res://Scripts/Universal/Hurtbox.gd" id="3_257qn"]
@@ -51,7 +52,7 @@ animations = [{
 }],
 "loop": 1,
 "name": &"Walk",
-"speed": 5.0
+"speed": 8.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhguj"]
@@ -61,14 +62,17 @@ size = Vector2(9, 14)
 size = Vector2(9, 14)
 
 [node name="SpearGoblin" type="CharacterBody2D" unique_id=431472173]
+script = ExtResource("1_f3wi3")
+WALK_VELOCITY = 100.0
 
 [node name="Animation" type="AnimatedSprite2D" parent="." unique_id=896662133]
 sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Walk"
-frame_progress = 0.81055963
+autoplay = "Walk"
+frame = 4
+frame_progress = 0.75000495
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295]
-visible = false
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_vhguj")
 
@@ -76,12 +80,13 @@ shape = SubResource("RectangleShape2D_vhguj")
 script = ExtResource("2_qn1ai")
 health_amount = 3
 
-[node name="Hurtbox" type="Area2D" parent="." unique_id=1940742093]
+[node name="Hurtbox" type="Area2D" parent="." unique_id=1940742093 node_paths=PackedStringArray("object_animation")]
 script = ExtResource("3_257qn")
+object_animation = NodePath("../Animation")
 
 [node name="HurtboxCollider" type="CollisionShape2D" parent="Hurtbox" unique_id=767905543]
-visible = false
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_r1vj8")
 
+[connection signal="animation_finished" from="Animation" to="Hurtbox" method="_on_spear_goblin_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_area_entered"]
