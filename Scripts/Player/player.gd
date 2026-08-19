@@ -15,10 +15,8 @@ const JUMP_DECELERATION := 700.0
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
 @onready var first_attack_colldawn: Timer = $FirstAttackColldawn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-
-@export var idle_speed := 1.0
-@export var walk_speed := 1.0
-@export var jump_speed := 1.0
+@onready var hitbox_1: Area2D = $Hitbox1
+@onready var hitbox_2: Area2D = $Hitbox2
 
 var can_attack := true
 var is_attacking := false
@@ -121,6 +119,13 @@ func handle_attack() -> void:
 		if not attack_combo:
 			can_attack = false
 
+func deal_damage():
+	var overlapping_areas = hitbox_1.get_overlapping_areas()
+	
+	for area in overlapping_areas:
+		if area.is_in_group("Hurtbox"):
+			area.get_hit()
+
 func reset_attacks():
 	is_attacking = false
 	attack_combo = false
@@ -151,7 +156,6 @@ func _on_animation_finished(anim_name: String):
 		reset_attacks()
 		if active_state == STATE.FALL:
 				animation_player.play("Fall")
-
 
 func _on_first_attack_colldawn_timeout() -> void:
 	can_attack = true

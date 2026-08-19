@@ -24,6 +24,11 @@ DebugOverlay="*uid://brvs0snpvryu7"
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 
+[global_group]
+
+Hitbox=""
+Hurtbox=""
+
 [input]
 
 Jump={
