@@ -111,7 +111,6 @@ sources/0 = SubResource("TileSetAtlasSource_21xkr")
 [node name="Main" type="Node2D" unique_id=80539148]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=438982633]
-visible = false
 position = Vector2(133.75002, -80.74999)
 scale = Vector2(1.0529891, 1.2908653)
 texture = ExtResource("5_kry3j")

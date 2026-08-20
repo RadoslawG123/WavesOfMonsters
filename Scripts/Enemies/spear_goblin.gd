@@ -31,6 +31,7 @@ func throw_spear():
 
 func create_spear():
 	var new_spear = spear.instantiate()
+	
 	new_spear.global_position = spear_spawn_point.global_position
 	get_tree().current_scene.add_child(new_spear)
 

@@ -5,8 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://cv5tejedfdiyd" path="res://Assets/Enemies/Goblin/goblin_spear_throw.png" id="2_envap"]
 [ext_resource type="PackedScene" uid="uid://q2kt5x2awki7" path="res://Scenes/Others/Spear.tscn" id="2_j33ud"]
 [ext_resource type="Script" uid="uid://c1mqinkanua58" path="res://Scripts/Universal/HealthComponent.gd" id="2_qn1ai"]
+[ext_resource type="Shader" uid="uid://k5wu2e0okuur" path="res://Assets/Shaders/White.gdshader" id="3_3u2xq"]
 [ext_resource type="Texture2D" uid="uid://7ox1w52cqhu4" path="res://Assets/Enemies/Goblin/goblin_walk.png" id="3_e3fld"]
 [ext_resource type="PackedScene" uid="uid://bxmx6fmybo61p" path="res://Scenes/Universal/hurtbox.tscn" id="4_f3wi3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
+shader = ExtResource("3_3u2xq")
+shader_parameter/flash_modifier = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjd1g"]
 atlas = ExtResource("2_envap")
@@ -417,6 +423,7 @@ script = ExtResource("1_f3wi3")
 spear = ExtResource("2_j33ud")
 
 [node name="Animation" type="AnimatedSprite2D" parent="." unique_id=896662133]
+material = SubResource("ShaderMaterial_kry3j")
 sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Walk"
 
@@ -429,7 +436,8 @@ shape = SubResource("RectangleShape2D_vhguj")
 script = ExtResource("2_qn1ai")
 health_amount = 3
 
-[node name="Hurtbox" parent="." unique_id=1952516124 instance=ExtResource("4_f3wi3")]
+[node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("4_f3wi3")]
+sprite = NodePath("../Animation")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=597846441]
 position = Vector2(-0.5, 3)

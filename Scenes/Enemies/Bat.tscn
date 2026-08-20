@@ -2,8 +2,14 @@
 
 [ext_resource type="Script" uid="uid://x3y0eyyjrbya" path="res://Scripts/Enemies/bat.gd" id="1_4bhup"]
 [ext_resource type="Texture2D" uid="uid://nykexxvfmf0l" path="res://Assets/Enemies/Bat/Bat_1_v3.png" id="1_xfaav"]
+[ext_resource type="Shader" uid="uid://k5wu2e0okuur" path="res://Assets/Shaders/White.gdshader" id="2_fgnpe"]
 [ext_resource type="PackedScene" uid="uid://bwdrkmws83sb4" path="res://Scenes/Universal/health_component.tscn" id="2_u58sa"]
 [ext_resource type="PackedScene" uid="uid://bxmx6fmybo61p" path="res://Scenes/Universal/hurtbox.tscn" id="3_4bhup"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3u2xq"]
+shader = ExtResource("2_fgnpe")
+shader_parameter/flash_modifier = 0.0
+shader_parameter/flash_color = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4yo7"]
 atlas = ExtResource("1_xfaav")
@@ -144,6 +150,7 @@ collision_mask = 4
 script = ExtResource("1_4bhup")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1009929460]
+material = SubResource("ShaderMaterial_3u2xq")
 sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Fly"
 
@@ -158,7 +165,8 @@ shape = SubResource("RectangleShape2D_r1vj8")
 [node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("2_u58sa")]
 health_amount = 2
 
-[node name="Hurtbox" parent="." unique_id=1952516124 instance=ExtResource("3_4bhup")]
+[node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("3_4bhup")]
+sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1791558893]
 position = Vector2(0, 0.75)
