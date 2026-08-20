@@ -103,7 +103,10 @@ func handle_movement() -> void:
 	var input_direction := signf(Input.get_axis("Left", "Right"))
 	if input_direction:
 		player_animation.flip_h = input_direction > 0
+		hitbox_1.scale.x = -input_direction
+		hitbox_2.scale.x = -input_direction
 	velocity.x = input_direction * WALK_VELOCITY
+	
 
 func handle_attack() -> void:
 	if Input.is_action_just_pressed("Attack"):
