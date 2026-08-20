@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cbxa4ageltn58"
-path="res://.godot/imported/Slime_1.png-5dde97ba1329841bb1caf81a62273aa8.ctex"
+uid="uid://cv5tejedfdiyd"
+path="res://.godot/imported/goblin_spear_throw.png-549e94324be1e76da0a390346226da18.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Slime/Slime_1.png"
-dest_files=["res://.godot/imported/Slime_1.png-5dde97ba1329841bb1caf81a62273aa8.ctex"]
+source_file="res://Assets/Enemies/Goblin/goblin_spear_throw.png"
+dest_files=["res://.godot/imported/goblin_spear_throw.png-549e94324be1e76da0a390346226da18.ctex"]
 
 [params]
 

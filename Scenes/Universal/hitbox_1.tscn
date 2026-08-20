@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://c2ip3m0bosu7l"]
 
 [node name="Hitbox1" type="Area2D" unique_id=498748019 groups=["Hitbox"]]
+collision_layer = 8
+collision_mask = 16
 monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=1245484357]

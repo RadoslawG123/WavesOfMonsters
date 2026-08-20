@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxib6eht5e8n0"
-path="res://.godot/imported/Slime_jump.png-5df97e54ccbf3f2704cb640d24c50169.ctex"
+uid="uid://suwti2osihcp"
+path="res://.godot/imported/goblin_spear_walk_v2.png-42efc660b528fcc4f05900a976066273.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Slime/Slime_jump.png"
-dest_files=["res://.godot/imported/Slime_jump.png-5df97e54ccbf3f2704cb640d24c50169.ctex"]
+source_file="res://Assets/Enemies/Goblin/goblin_spear_walk_v2.png"
+dest_files=["res://.godot/imported/goblin_spear_walk_v2.png-42efc660b528fcc4f05900a976066273.ctex"]
 
 [params]
 
