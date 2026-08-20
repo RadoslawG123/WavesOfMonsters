@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6bsoahv7a4dt"
-path="res://.godot/imported/Full Walk.png-2184e65230698ef8b15ac9efdb8fa494.ctex"
+uid="uid://cdu7g4s13nfog"
+path="res://.godot/imported/Spear.png-dbe80ea76ee4e9da14b6f997e6df2c6e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Other/Full Walk.png"
-dest_files=["res://.godot/imported/Full Walk.png-2184e65230698ef8b15ac9efdb8fa494.ctex"]
+source_file="res://Assets/Other/Spear.png"
+dest_files=["res://.godot/imported/Spear.png-dbe80ea76ee4e9da14b6f997e6df2c6e.ctex"]
 
 [params]
 

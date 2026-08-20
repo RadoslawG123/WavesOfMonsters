@@ -2,6 +2,7 @@ extends Node
 class_name Hurtbox
 
 @onready var health_component: HealthComponent = $"../HealthComponent"
+
 @export var is_player := false
 
 func get_hit():

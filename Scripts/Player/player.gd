@@ -1,6 +1,12 @@
 extends CharacterBody2D
 class_name Player
 
+@onready var player_animation: AnimatedSprite2D = %PlayerAnimation
+@onready var first_attack_colldawn: Timer = $FirstAttackColldawn
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var hitbox_1: Area2D = $Hitbox1
+@onready var hitbox_2: Area2D = $Hitbox2
+
 enum STATE {
 	FALL,
 	FLOOR,
@@ -11,12 +17,6 @@ const FALL_VELOCITY := 200.0
 const WALK_VELOCITY := 100.0
 const JUMP_VELOCITY := -300.0
 const JUMP_DECELERATION := 700.0
-
-@onready var player_animation: AnimatedSprite2D = %PlayerAnimation
-@onready var first_attack_colldawn: Timer = $FirstAttackColldawn
-@onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var hitbox_1: Area2D = $Hitbox1
-@onready var hitbox_2: Area2D = $Hitbox2
 
 var can_attack := true
 var is_attacking := false

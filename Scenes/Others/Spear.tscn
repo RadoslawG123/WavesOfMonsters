@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://q2kt5x2awki7"]
+
+[ext_resource type="Texture2D" uid="uid://cdu7g4s13nfog" path="res://Assets/Other/Spear.png" id="1_1m8ts"]
+[ext_resource type="Script" uid="uid://c4o72iy5d1ckq" path="res://Scenes/Others/spear.gd" id="1_tsg5t"]
+
+[node name="Spear" type="Area2D" unique_id=420082044]
+collision_layer = 2
+collision_mask = 5
+script = ExtResource("1_tsg5t")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1309669847]
+texture = ExtResource("1_1m8ts")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=79270332]
+polygon = PackedVector2Array(-7, -2, -9, -2, -9, -1, -10, -1, -10, 0, -11, 0, -11, 1, -10, 1, -10, 2, -9, 2, -9, 3, -7, 3, -7, 2, 10, 2, 10, 1, 11, 1, 11, 0, 10, 0, 10, -1, -7, -1)
