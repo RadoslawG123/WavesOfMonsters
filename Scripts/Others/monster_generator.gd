@@ -7,15 +7,6 @@ extends Area2D
 @export var spear_goblin: PackedScene
 @export var bat: PackedScene
 
-## Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#pass # Replace with function body.
-#
-#
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
-
 func spawn_monster():
 	var random_monster = [spear_goblin, bat].pick_random()
 	var new_monster
@@ -28,8 +19,22 @@ func spawn_monster():
 	elif random_monster == bat:
 		new_monster = bat.instantiate()
 		
-		new_monster.global_position = sky_spawn_position.global_position
+		var edge_positions = get_edge_positions()
+		var random_position_y = randf_range(edge_positions["top"], edge_positions["bottom"])
+
+		new_monster.global_position = Vector2(sky_spawn_position.global_position.x, random_position_y)
 		get_tree().current_scene.add_child(new_monster)
+
+func get_edge_positions():
+	var edge_positions = {}
+	var rect_shape = sky_spawn_position.shape as RectangleShape2D
+	if rect_shape:
+		edge_positions["left"] = sky_spawn_position.global_position.x - rect_shape.extents.x
+		edge_positions["right"] = sky_spawn_position.global_position.x + rect_shape.extents.x
+		edge_positions["top"] = sky_spawn_position.global_position.y - rect_shape.extents.y
+		edge_positions["bottom"] = sky_spawn_position.global_position.y + rect_shape.extents.y
+		
+	return edge_positions
 
 func _on_spawn_colldawn_timeout() -> void:
 	spawn_monster()

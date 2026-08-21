@@ -437,7 +437,7 @@ shape = SubResource("RectangleShape2D_vhguj")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1880108948]
 script = ExtResource("2_qn1ai")
-health_amount = 3
+health_amount = 2
 
 [node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("4_f3wi3")]
 sprite = NodePath("../Animation")

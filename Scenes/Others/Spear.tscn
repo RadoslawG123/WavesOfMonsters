@@ -3,7 +3,59 @@
 [ext_resource type="Texture2D" uid="uid://cdu7g4s13nfog" path="res://Assets/Other/Spear.png" id="1_1m8ts"]
 [ext_resource type="Script" uid="uid://c4o72iy5d1ckq" path="res://Scripts/Others/spear.gd" id="1_tsg5t"]
 
-[node name="Spear" type="Area2D" unique_id=420082044]
+[sub_resource type="Animation" id="Animation_tsg5t"]
+resource_name = "Disappear"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mqe3x"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1vxcq"]
+_data = {
+&"Disappear": SubResource("Animation_tsg5t"),
+&"RESET": SubResource("Animation_mqe3x")
+}
+
+[node name="Spear" type="Area2D" unique_id=275161446]
+rotation = 3.1415927
 collision_layer = 2
 collision_mask = 5
 script = ExtResource("1_tsg5t")
@@ -13,3 +65,8 @@ texture = ExtResource("1_1m8ts")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=79270332]
 polygon = PackedVector2Array(-7, -2, -9, -2, -9, -1, -10, -1, -10, 0, -11, 0, -11, 1, -10, 1, -10, 2, -9, 2, -9, 3, -7, 3, -7, 2, 10, 2, 10, 1, 11, 1, 11, 0, 10, 0, 10, -1, -7, -1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1912222008]
+libraries/ = SubResource("AnimationLibrary_1vxcq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

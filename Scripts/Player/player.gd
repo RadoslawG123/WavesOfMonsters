@@ -1,7 +1,9 @@
 extends CharacterBody2D
 class_name Player
 
+
 ##### Variables #####
+
 ## OnReady variables
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
 @onready var first_attack_colldawn: Timer = $FirstAttackColldawn
@@ -29,7 +31,9 @@ var is_attacking := false
 var attack_combo := false
 var active_state := STATE.FALL
 
+
 ##### Main functions #####
+
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	switch_state(active_state)
@@ -106,7 +110,9 @@ func process_state(delta: float) -> void:
 					velocity.y *= 0.3
 				switch_state(STATE.FALL)
 
+
 ##### Other functions #####
+
 ## Handle Movement
 func handle_movement() -> void:
 	var input_direction := signf(Input.get_axis("Left", "Right"))
@@ -187,6 +193,6 @@ func _on_animation_finished(anim_name: String):
 		if active_state == STATE.FALL:
 				animation_player.play("Fall")
 
-## When colldawn (timer) go to the end do something
+## When colldawn timer reaches the end do something
 func _on_first_attack_colldawn_timeout() -> void:
 	can_attack = true
