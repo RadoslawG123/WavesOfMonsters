@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bj1bs61eh85y4"]
+
+[ext_resource type="Script" uid="uid://xivkqi3ondqq" path="res://Scripts/Others/monster_generator.gd" id="1_emvdd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_emvdd"]
+
+[node name="MonsterGenerator" type="Area2D" unique_id=1461595443]
+script = ExtResource("1_emvdd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=400855718]
+shape = SubResource("RectangleShape2D_emvdd")
+
+[node name="SpawnColldawn" type="Timer" parent="." unique_id=233709442]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="SpawnColldawn" to="." method="_on_spawn_colldawn_timeout"]

@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Bat
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 

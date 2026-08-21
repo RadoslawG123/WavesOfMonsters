@@ -131,4 +131,4 @@ process_callback = 0
 position = Vector2(299, -29)
 
 [node name="Bat" parent="." unique_id=1808204833 instance=ExtResource("5_21xkr")]
-position = Vector2(365, -76)
+position = Vector2(287, -72)

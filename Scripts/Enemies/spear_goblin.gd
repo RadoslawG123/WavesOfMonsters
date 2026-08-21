@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name SpearGoblin
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var spear_spawn_point: Marker2D = $SpearSpawnPoint
@@ -15,9 +16,6 @@ func _physics_process(_delta: float) -> void:
 	
 	if Input.is_action_just_released("DebugEnemy"):
 		throw_spear()
-	
-	# DebugOverlay
-	DebugOverlay.add_stat("Goblin", "velocity X: ", velocity.x)
 	
 	move_and_slide()
 
