@@ -40,14 +40,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	# Adding information to DEBUG OVERLAY
-	#DebugOverlay.add_stat("Player", "State:", active_state)
-	#DebugOverlay.add_stat("Player", "Animation", animation_player.animation)
-	#DebugOverlay.add_stat("Player", "attack_combo", attack_combo)
-	#DebugOverlay.add_stat("Player", "is_attacking", is_attacking)
-	#DebugOverlay.add_stat("Player", "can_attack", can_attack)
-	#DebugOverlay.add_stat("Player", "AttackColldawn", first_attack_colldawn.time_left)
-	#DebugOverlay.add_stat("Player", "Velocity X:", roundf(velocity.x))
-	#DebugOverlay.add_stat("Player", "Velocity Y:", roundf(velocity.y))
+	DebugOverlay.add_stat("Player", "Position:", position)
 
 ## Swich State: Swiching states
 func switch_state(to_state: STATE) -> void:

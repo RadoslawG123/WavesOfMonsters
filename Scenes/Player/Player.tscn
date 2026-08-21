@@ -742,7 +742,6 @@ sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Attack"
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1571172263]
-visible = false
 position = Vector2(0.5, 0)
 shape = SubResource("RectangleShape2D_qvbvp")
 

@@ -1,17 +1,31 @@
 [gd_scene format=3 uid="uid://bj1bs61eh85y4"]
 
 [ext_resource type="Script" uid="uid://xivkqi3ondqq" path="res://Scripts/Others/monster_generator.gd" id="1_emvdd"]
+[ext_resource type="PackedScene" uid="uid://d36rtrfysxsbj" path="res://Scenes/Enemies/Bat.tscn" id="2_3cn4h"]
+[ext_resource type="PackedScene" uid="uid://c2qvma7ibv2be" path="res://Scenes/Enemies/SpearGoblin.tscn" id="3_yn72s"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_emvdd"]
+size = Vector2(20, 10)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1vj8"]
+size = Vector2(20, 25)
 
 [node name="MonsterGenerator" type="Area2D" unique_id=1461595443]
 script = ExtResource("1_emvdd")
+spear_goblin = ExtResource("3_yn72s")
+bat = ExtResource("2_3cn4h")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=400855718]
+[node name="FloorSpawnPosition" type="CollisionShape2D" parent="." unique_id=400855718]
+position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_emvdd")
+debug_color = Color(0.9372584, 0.24032646, 0.1981436, 0.41960785)
 
 [node name="SpawnColldawn" type="Timer" parent="." unique_id=233709442]
 wait_time = 2.0
 autostart = true
+
+[node name="SkySpawnPosition" type="CollisionShape2D" parent="." unique_id=179031822]
+position = Vector2(0, -54.5)
+shape = SubResource("RectangleShape2D_r1vj8")
 
 [connection signal="timeout" from="SpawnColldawn" to="." method="_on_spawn_colldawn_timeout"]

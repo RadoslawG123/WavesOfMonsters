@@ -1,10 +1,10 @@
 [gd_scene format=4 uid="uid://upixhthmfdi7"]
 
 [ext_resource type="Texture2D" uid="uid://6o150dfsk3bf" path="res://Assets/Tileset/GrassLand/Terrain/Grassland_Terrain_47Tiles.png" id="3_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://c2qvma7ibv2be" path="res://Scenes/Enemies/SpearGoblin.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dxej5w0j47va1" path="res://Scenes/Player/Player.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://d36rtrfysxsbj" path="res://Scenes/Enemies/Bat.tscn" id="5_21xkr"]
 [ext_resource type="Texture2D" uid="uid://ca2qkwsd8in86" path="res://Assets/Tileset/GrassLand/Background/GrassLand_Background_Guide.png" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://bj1bs61eh85y4" path="res://Scenes/Others/monster_generator.tscn" id="6_21xkr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
 texture = ExtResource("3_jjvhh")
@@ -119,16 +119,16 @@ texture = ExtResource("5_kry3j")
 tile_map_data = PackedByteArray("AAAAAP//AAABAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAABAAAAAAANAP//AAABAAAAAAD/////AAABAAAAAAD+////AAABAAAAAAD9////AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD6////AAABAAAAAAD5////AAABAAAAAAD4////AAABAAAAAAD3////AAABAAAAAAD2////AAABAAAAAAD1////AAABAAAAAAAOAP//AAABAAAAAAAPAP//AAABAAAAAAAQAP//AAABAAAAAAARAP//AAABAAAAAAASAP//AAABAAAAAAATAP//AAABAAAAAAAUAP//AAABAAAAAAAVAP//AAABAAAAAAAWAP//AAABAAAAAAAXAP//AAABAAAAAAAYAP//AAABAAAAAAAZAP//AAABAAAAAAD1/wAAAAABAAEAAAD2/wAAAAABAAEAAAD3/wAAAAABAAEAAAD4/wAAAAABAAEAAAD5/wAAAAABAAEAAAD6/wAAAAABAAEAAAD7/wAAAAABAAEAAAD8/wAAAAABAAEAAAD9/wAAAAABAAEAAAD+/wAAAAABAAEAAAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAAEAAAAAAABAAEAAAAFAAAAAAABAAEAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAABAAEAAAAQAAAAAAABAAEAAAARAAAAAAABAAEAAAASAAAAAAABAAEAAAATAAAAAAABAAEAAAAUAAAAAAABAAEAAAAVAAAAAAABAAEAAAAWAAAAAAABAAEAAAAXAAAAAAABAAEAAAAYAAAAAAABAAEAAAAZAAAAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_r1vj8")
 
+[node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
+position = Vector2(357, -27)
+
 [node name="Player" parent="." unique_id=197770266 instance=ExtResource("4_kry3j")]
-position = Vector2(-34, -44)
+position = Vector2(-28, -23)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1578881204]
 position = Vector2(133, -106)
 zoom = Vector2(3, 3)
 process_callback = 0
-
-[node name="SpearGoblin" parent="." unique_id=431472173 instance=ExtResource("4_jjvhh")]
-position = Vector2(299, -29)
 
 [node name="Bat" parent="." unique_id=1808204833 instance=ExtResource("5_21xkr")]
 position = Vector2(287, -72)

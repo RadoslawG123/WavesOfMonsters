@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bxmx6fmybo61p" path="res://Scenes/Universal/hurtbox.tscn" id="3_4bhup"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_3u2xq"]
+resource_local_to_scene = true
 shader = ExtResource("2_fgnpe")
 shader_parameter/flash_modifier = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)

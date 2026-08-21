@@ -7,6 +7,7 @@ class_name Bat
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	FLY_VELOCITY = randf_range(20.0, 40.0)
 	animation_player.play("Fly")
 
 

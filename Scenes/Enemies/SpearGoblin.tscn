@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxmx6fmybo61p" path="res://Scenes/Universal/hurtbox.tscn" id="4_f3wi3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_kry3j"]
+resource_local_to_scene = true
 shader = ExtResource("3_3u2xq")
 shader_parameter/flash_modifier = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
@@ -201,10 +202,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vhguj"]
-size = Vector2(9, 14)
+size = Vector2(9, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1vj8"]
-size = Vector2(9, 14)
+size = Vector2(9, 16)
 
 [sub_resource type="Animation" id="Animation_f3wi3"]
 length = 0.001
@@ -304,10 +305,10 @@ tracks/3/path = NodePath(".:WALK_VELOCITY")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 6),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0.0, 20.0]
+"values": [0.0]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
@@ -316,11 +317,14 @@ tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(3, 6),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"create_spear"
+}, {
+"args": [],
+"method": &"walk_velocity_back"
 }]
 }
 
@@ -428,8 +432,7 @@ sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Walk"
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295]
-visible = false
-position = Vector2(-0.5, 3)
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_vhguj")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1880108948]
@@ -440,7 +443,8 @@ health_amount = 3
 sprite = NodePath("../Animation")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=597846441]
-position = Vector2(-0.5, 3)
+visible = false
+position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_r1vj8")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=781635350]
