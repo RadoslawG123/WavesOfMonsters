@@ -8,9 +8,16 @@ class_name Hurtbox
 
 func get_hit():
 	if health_component:
+		if health_component.health_amount <= 0:
+			die()
+			return
 		health_component.received_damage()
 		flash_white()
 		print("Życie:", health_component.health_amount)
+
+func die():
+	if not is_player:
+		get_parent().queue_free()
 
 ## Test function from gemini
 func flash_white():

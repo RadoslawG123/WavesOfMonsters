@@ -8,3 +8,4 @@ func add_health(health: int) -> void:
 
 func received_damage() -> void:
 	health_amount -= 1
+	

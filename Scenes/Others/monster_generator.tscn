@@ -27,5 +27,6 @@ autostart = true
 [node name="SkySpawnPosition" type="CollisionShape2D" parent="." unique_id=179031822]
 position = Vector2(0, -54.5)
 shape = SubResource("RectangleShape2D_r1vj8")
+debug_color = Color(1.92523e-06, 0.6418374, 0.33289543, 0.41960785)
 
 [connection signal="timeout" from="SpawnColldawn" to="." method="_on_spawn_colldawn_timeout"]
