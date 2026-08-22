@@ -54,7 +54,7 @@ _data = {
 &"RESET": SubResource("Animation_mqe3x")
 }
 
-[node name="Spear" type="Area2D" unique_id=275161446]
+[node name="Spear" type="Area2D" unique_id=275161446 groups=["Enemy"]]
 rotation = 3.1415927
 collision_layer = 2
 collision_mask = 5

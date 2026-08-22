@@ -27,6 +27,7 @@ window/stretch/aspect="expand"
 
 Hitbox=""
 Hurtbox=""
+Enemy=""
 
 [input]
 

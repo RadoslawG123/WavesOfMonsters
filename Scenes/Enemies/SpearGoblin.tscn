@@ -420,7 +420,7 @@ _data = {
 &"Walk_Spear": SubResource("Animation_envap")
 }
 
-[node name="SpearGoblin" type="CharacterBody2D" unique_id=431472173]
+[node name="SpearGoblin" type="CharacterBody2D" unique_id=431472173 groups=["Enemy"]]
 collision_layer = 2
 collision_mask = 4
 script = ExtResource("1_f3wi3")
@@ -431,7 +431,7 @@ material = SubResource("ShaderMaterial_kry3j")
 sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Walk"
 
-[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295]
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295 groups=["Enemy"]]
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_vhguj")
 
