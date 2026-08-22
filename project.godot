@@ -72,6 +72,7 @@ DebugEnemy={
 2d_physics/layer_3="World"
 2d_physics/layer_4="Player_Hitbox"
 2d_physics/layer_5="Enemy_Hurtbox"
+2d_physics/layer_6="Spear"
 
 [physics]
 

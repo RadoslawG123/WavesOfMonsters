@@ -431,7 +431,7 @@ material = SubResource("ShaderMaterial_kry3j")
 sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Walk"
 
-[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295 groups=["Enemy"]]
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1263964295]
 position = Vector2(-0.5, 5)
 shape = SubResource("RectangleShape2D_vhguj")
 
