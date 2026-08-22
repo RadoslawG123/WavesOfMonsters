@@ -42,9 +42,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	process_state(delta)
 	move_and_slide()
-	
-	# Adding information to DEBUG OVERLAY
-	DebugOverlay.add_stat("Player", "Position:", position)
 
 ## Swich State: Swiching states
 func switch_state(to_state: STATE) -> void:

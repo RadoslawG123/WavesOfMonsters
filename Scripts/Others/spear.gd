@@ -20,12 +20,6 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-		
-	# DEBUG
-	DebugOverlay.add_stat("Spear", "ID:", get_instance_id())
-	DebugOverlay.add_stat("Spear", "Position:", global_position)
-	DebugOverlay.add_stat("Spear", "Rotation:", rotation_degrees)
-	
 	if freeze:
 		return
 		

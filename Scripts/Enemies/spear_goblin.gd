@@ -3,6 +3,7 @@ class_name SpearGoblin
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var spear_spawn_point: Marker2D = $SpearSpawnPoint
+@onready var throw_timer: Timer = $ThrowTimer
 
 @export var WALK_VELOCITY := 20.0
 @export var GRAVITY := 10.0
@@ -12,8 +13,10 @@ var walk_velocity_shelf: float
 
 func _ready() -> void:
 	WALK_VELOCITY = randf_range(10.0, 25.0)
+	throw_timer.wait_time = randf_range(5.0, 10.0)
 	walk_velocity_shelf = WALK_VELOCITY
 	
+	throw_timer.start()
 	animation_player.play("Walk_Spear")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -22,10 +25,6 @@ func _physics_process(_delta: float) -> void:
 		velocity.y += GRAVITY
 		
 	velocity.x = -WALK_VELOCITY 
-	
-	if Input.is_action_just_released("DebugEnemy"):
-		throw_spear()
-	
 	move_and_slide()
 
 
@@ -50,3 +49,6 @@ func walk_velocity_back():
 func _on_animation_finished(anim_name: StringName) -> void:
 	if anim_name == "Throw":
 		animation_player.play("Walk")
+
+func _on_throw_timer_timeout() -> void:
+	throw_spear()
