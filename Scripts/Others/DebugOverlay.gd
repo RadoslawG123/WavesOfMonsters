@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+
+##### Simple debug overlay generated from gemini #####
+
 # Dictonary for all data
 var debug_data: Dictionary = {}
 

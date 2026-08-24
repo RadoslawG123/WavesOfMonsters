@@ -846,6 +846,7 @@ sprite = NodePath("../PlayerAnimation")
 shape = SubResource("RectangleShape2D_qvbvp")
 
 [node name="Hitbox1" parent="." unique_id=498748019 instance=ExtResource("8_yoq75")]
+visible = false
 collision_mask = 48
 
 [node name="Hitbox1Collider" type="CollisionPolygon2D" parent="Hitbox1" unique_id=318971182]

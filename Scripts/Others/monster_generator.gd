@@ -1,12 +1,21 @@
 extends Area2D
 
+
+##### Variables #####
+
+## Onready variables
 @onready var spawn_colldawn: Timer = $SpawnColldawn
 @onready var floor_spawn_position: CollisionShape2D = $FloorSpawnPosition
 @onready var sky_spawn_position: CollisionShape2D = $SkySpawnPosition
 
+## Export variables
 @export var spear_goblin: PackedScene
 @export var bat: PackedScene
 
+
+##### Main functions #####
+
+## Spawn Monster
 func spawn_monster():
 	var random_monster = [spear_goblin, bat].pick_random()
 	var new_monster
@@ -25,9 +34,11 @@ func spawn_monster():
 		new_monster.global_position = Vector2(sky_spawn_position.global_position.x, random_position_y)
 		get_tree().current_scene.add_child(new_monster)
 
+## Get Edge Positions: sky spawn global edges positions
 func get_edge_positions():
 	var edge_positions = {}
 	var rect_shape = sky_spawn_position.shape as RectangleShape2D
+	
 	if rect_shape:
 		edge_positions["left"] = sky_spawn_position.global_position.x - rect_shape.extents.x
 		edge_positions["right"] = sky_spawn_position.global_position.x + rect_shape.extents.x
@@ -36,5 +47,6 @@ func get_edge_positions():
 		
 	return edge_positions
 
+## Timer Signal function: Emitted when the timer reaches the end
 func _on_spawn_colldawn_timeout() -> void:
 	spawn_monster()

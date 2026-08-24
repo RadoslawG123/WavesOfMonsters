@@ -1,11 +1,19 @@
 extends Node
 class_name Hurtbox
 
+
+##### Variables #####
+
+## Onready variables
 @onready var health_component: HealthComponent = $"../HealthComponent"
 
+## Export variables
 @export var is_player := false
 @export var sprite: Node2D
 
+##### Main functions #####
+
+## GET HIT
 func get_hit():
 	if health_component:
 		if health_component.health_amount <= 0:
@@ -16,8 +24,10 @@ func get_hit():
 		flash_white()
 		print("Życie:", health_component.health_amount)
 
+## DIE
 func die():
 	if not is_player:
+		# Delete object from main scene
 		get_parent().queue_free()
 
 ## Test function from gemini
@@ -35,10 +45,15 @@ func flash_white():
 		# tween_property (obiekt, "co zmieniamy", wartość_docelowa, czas_w_sekundach)
 		tween.tween_property(sprite.material, "shader_parameter/flash_modifier", 0.0, 0.5)
 
+
+##### Player hitbox functions #####
+
+## Signal function: Player collides with enemy
 func _on_player_enemy_entered(body: Node2D) -> void:
 	if is_player and body.is_in_group("Enemy"):
 		get_hit()
 
+## Signal function: Player collides with projectile
 func _on_player_projectile_entered(area: Area2D) -> void:
 	if is_player and area.is_in_group("Enemy"):
 		get_hit()

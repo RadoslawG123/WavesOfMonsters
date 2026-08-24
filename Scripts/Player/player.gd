@@ -4,7 +4,7 @@ class_name Player
 
 ##### Variables #####
 
-## OnReady variables
+## Onready variables
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
 @onready var first_attack_colldawn: Timer = $FirstAttackColldawn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -157,6 +157,9 @@ func reset_attacks():
 	is_attacking = false
 	attack_combo = false
 	can_attack = true
+
+
+##### Signal Functions #####
 
 ## When animations finishes do something
 func _on_animation_finished(anim_name: String):
