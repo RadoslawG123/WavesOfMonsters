@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://upixhthmfdi7"]
 
+[ext_resource type="Texture2D" uid="uid://cch4fp8ctssn3" path="res://Assets/Background/Background_v2.png" id="2_21xkr"]
 [ext_resource type="Texture2D" uid="uid://6o150dfsk3bf" path="res://Assets/Tileset/GrassLand/Terrain/Grassland_Terrain_47Tiles.png" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://c2qvma7ibv2be" path="res://Scenes/Enemies/SpearGoblin.tscn" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dxej5w0j47va1" path="res://Scenes/Player/Player.tscn" id="4_kry3j"]
@@ -111,11 +112,17 @@ sources/0 = SubResource("TileSetAtlasSource_21xkr")
 [node name="Main" type="Node2D" unique_id=80539148]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=438982633]
+visible = false
 position = Vector2(133.75002, -80.74999)
 scale = Vector2(1.0529891, 1.2908653)
 texture = ExtResource("5_kry3j")
 
+[node name="BackgroundV2" type="Sprite2D" parent="." unique_id=123793008]
+position = Vector2(144, -119)
+texture = ExtResource("2_21xkr")
+
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=127768379]
+visible = false
 tile_map_data = PackedByteArray("AAAAAP//AAABAAAAAAABAP//AAABAAAAAAACAP//AAABAAAAAAADAP//AAABAAAAAAAEAP//AAABAAAAAAAFAP//AAABAAAAAAAGAP//AAABAAAAAAAHAP//AAABAAAAAAAIAP//AAABAAAAAAAJAP//AAABAAAAAAAKAP//AAABAAAAAAALAP//AAABAAAAAAAMAP//AAABAAAAAAANAP//AAABAAAAAAD/////AAABAAAAAAD+////AAABAAAAAAD9////AAABAAAAAAD8////AAABAAAAAAD7////AAABAAAAAAD6////AAABAAAAAAD5////AAABAAAAAAD4////AAABAAAAAAD3////AAABAAAAAAD2////AAABAAAAAAD1////AAABAAAAAAAOAP//AAABAAAAAAAPAP//AAABAAAAAAAQAP//AAABAAAAAAARAP//AAABAAAAAAASAP//AAABAAAAAAATAP//AAABAAAAAAAUAP//AAABAAAAAAAVAP//AAABAAAAAAAWAP//AAABAAAAAAAXAP//AAABAAAAAAAYAP//AAABAAAAAAAZAP//AAABAAAAAAD1/wAAAAABAAEAAAD2/wAAAAABAAEAAAD3/wAAAAABAAEAAAD4/wAAAAABAAEAAAD5/wAAAAABAAEAAAD6/wAAAAABAAEAAAD7/wAAAAABAAEAAAD8/wAAAAABAAEAAAD9/wAAAAABAAEAAAD+/wAAAAABAAEAAAD//wAAAAABAAEAAAAAAAAAAAABAAEAAAABAAAAAAABAAEAAAACAAAAAAABAAEAAAADAAAAAAABAAEAAAAEAAAAAAABAAEAAAAFAAAAAAABAAEAAAAGAAAAAAABAAEAAAAHAAAAAAABAAEAAAAIAAAAAAABAAEAAAAJAAAAAAABAAEAAAAKAAAAAAABAAEAAAALAAAAAAABAAEAAAAMAAAAAAABAAEAAAANAAAAAAABAAEAAAAOAAAAAAABAAEAAAAPAAAAAAABAAEAAAAQAAAAAAABAAEAAAARAAAAAAABAAEAAAASAAAAAAABAAEAAAATAAAAAAABAAEAAAAUAAAAAAABAAEAAAAVAAAAAAABAAEAAAAWAAAAAAABAAEAAAAXAAAAAAABAAEAAAAYAAAAAAABAAEAAAAZAAAAAAABAAEAAAA=")
 tile_set = SubResource("TileSet_r1vj8")
 
@@ -123,12 +130,12 @@ tile_set = SubResource("TileSet_r1vj8")
 position = Vector2(-28, -23)
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1578881204]
-position = Vector2(133, -106)
-zoom = Vector2(3, 3)
+position = Vector2(-96, -254)
+anchor_mode = 0
 process_callback = 0
 
 [node name="SpearGoblin" parent="." unique_id=431472173 instance=ExtResource("4_jjvhh")]
 position = Vector2(316, -30)
 
 [node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
-position = Vector2(338, -18)
+position = Vector2(394, -17)

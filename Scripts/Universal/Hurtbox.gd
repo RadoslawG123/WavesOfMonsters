@@ -16,11 +16,12 @@ class_name Hurtbox
 ## GET HIT
 func get_hit():
 	if health_component:
+		health_component.received_damage()
+		
 		if health_component.health_amount <= 0:
 			die()
 			return
 			
-		health_component.received_damage()
 		flash_white()
 		print("Życie:", health_component.health_amount)
 

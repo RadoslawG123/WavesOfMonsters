@@ -20,8 +20,10 @@ DebugOverlay="*uid://brvs0snpvryu7"
 
 [display]
 
-window/stretch/mode="canvas_items"
-window/stretch/aspect="expand"
+window/size/viewport_width=480
+window/size/viewport_height=270
+window/size/mode=2
+window/stretch/mode="viewport"
 
 [global_group]
 
