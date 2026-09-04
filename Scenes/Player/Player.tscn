@@ -810,7 +810,7 @@ _data = {
 &"Walk": SubResource("Animation_ulo2v")
 }
 
-[node name="Player" type="CharacterBody2D" unique_id=197770266]
+[node name="Player" type="CharacterBody2D" unique_id=197770266 groups=["Player"]]
 collision_mask = 4
 script = ExtResource("1_kyqiw")
 

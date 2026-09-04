@@ -138,4 +138,4 @@ process_callback = 0
 position = Vector2(316, -30)
 
 [node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
-position = Vector2(394, -17)
+position = Vector2(394, -13)

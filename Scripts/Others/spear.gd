@@ -43,7 +43,7 @@ func _physics_process(delta: float) -> void:
 	
 	
 	# Calculate actual velocity in this split second
-	# Vertically: (gravitation pulls down)- (upward throw force)
+	# Vertically: (gravitation pulls down) - (upward throw force)
 	var current_velocity_y = (my_gravity * t) - V_0y
 	var current_velocity = Vector2(-V_0x, -current_velocity_y)
 	

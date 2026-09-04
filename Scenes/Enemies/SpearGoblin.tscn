@@ -248,7 +248,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:WALK_VELOCITY")
+tracks/3/path = NodePath(".:X_VELOCITY")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -301,7 +301,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".:WALK_VELOCITY")
+tracks/3/path = NodePath(".:X_VELOCITY")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -324,7 +324,7 @@ tracks/4/keys = {
 "method": &"create_spear"
 }, {
 "args": [],
-"method": &"walk_velocity_back"
+"method": &"x_velocity_back"
 }]
 }
 
@@ -437,7 +437,7 @@ shape = SubResource("RectangleShape2D_vhguj")
 
 [node name="HealthComponent" type="Node" parent="." unique_id=1880108948]
 script = ExtResource("2_qn1ai")
-health_amount = 2
+health_amount = 3
 
 [node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("4_f3wi3")]
 sprite = NodePath("../Animation")

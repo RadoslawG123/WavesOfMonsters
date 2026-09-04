@@ -164,7 +164,7 @@ position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_r1vj8")
 
 [node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("2_u58sa")]
-health_amount = 1
+health_amount = 2
 
 [node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("3_4bhup")]
 sprite = NodePath("../AnimatedSprite2D")

@@ -10,31 +10,32 @@ class_name SpearGoblin
 @onready var throw_timer: Timer = $ThrowTimer
 
 ## Export variables
-@export var WALK_VELOCITY := 20.0
+@export var X_VELOCITY := 20.0
 @export var GRAVITY := 10.0
 @export var spear: PackedScene
 
 ## Normal variables
-var walk_velocity_shelf: float
+var X_VELOCITY_shelf: float
 
 
 ##### Main functions #####
 
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	WALK_VELOCITY = randf_range(10.0, 25.0)
+	X_VELOCITY = randf_range(10.0, 25.0)
 	throw_timer.wait_time = randf_range(5.0, 10.0)
-	walk_velocity_shelf = WALK_VELOCITY
+	X_VELOCITY_shelf = X_VELOCITY
 	
 	throw_timer.start()
 	animation_player.play("Walk_Spear")
 
 ## _Physics_process: Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
+	DebugOverlay.add_stat("GOBLIN", "X_VELOCITY", X_VELOCITY)
 	if not is_on_floor():
 		velocity.y += GRAVITY
 		
-	velocity.x = -WALK_VELOCITY 
+	velocity.x = -X_VELOCITY 
 	move_and_slide()
 
 
@@ -58,8 +59,8 @@ func create_spear():
 	get_tree().current_scene.add_child(new_spear)
 
 ## Walk Velocity Back: Save goblins velocity to restore it further after spear throw
-func walk_velocity_back():
-	WALK_VELOCITY = walk_velocity_shelf
+func x_velocity_back():
+	X_VELOCITY = X_VELOCITY_shelf
 
 
 ##### Signal functions #####

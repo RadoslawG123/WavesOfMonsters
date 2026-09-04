@@ -21,16 +21,16 @@ enum STATE {
 ## Constrants
 const FALL_GRAVITY := 500.0
 const FALL_VELOCITY := 200.0
-const WALK_VELOCITY := 100.0
 const JUMP_VELOCITY := -300.0
 const JUMP_DECELERATION := 700.0
 
 ## Normal variables
+var X_VELOCITY := 100.0
 var can_attack := true
 var is_attacking := false
 var attack_combo := false
 var active_state := STATE.FALL
-
+var input_direction: float
 
 ##### Main functions #####
 
@@ -112,7 +112,7 @@ func process_state(delta: float) -> void:
 
 ## Handle Movement
 func handle_movement() -> void:
-	var input_direction := signf(Input.get_axis("Left", "Right"))
+	input_direction = signf(Input.get_axis("Left", "Right"))
 	
 	if input_direction:
 		player_animation.flip_h = input_direction > 0
@@ -121,7 +121,7 @@ func handle_movement() -> void:
 		hitbox_1.scale.x = -input_direction
 		hitbox_2.scale.x = -input_direction
 	
-	velocity.x = input_direction * WALK_VELOCITY
+	velocity.x = input_direction * X_VELOCITY
 
 ## Handle Attack
 func handle_attack() -> void:

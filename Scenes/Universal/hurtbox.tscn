@@ -9,3 +9,9 @@ script = ExtResource("1_rnnan")
 
 [node name="HurtboxCollider" type="CollisionShape2D" parent="." unique_id=1161186668]
 position = Vector2(0.5, 0)
+
+[node name="PushTimer" type="Timer" parent="." unique_id=1766630626]
+wait_time = 0.5
+ignore_time_scale = true
+
+[connection signal="timeout" from="PushTimer" to="." method="_on_push_timer_timeout"]
