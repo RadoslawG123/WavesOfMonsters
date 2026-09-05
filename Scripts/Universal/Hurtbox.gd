@@ -83,6 +83,7 @@ func flash_white():
 func _on_push_timer_timeout() -> void:
 	owner.X_VELOCITY = X_VELOCITY_shelf
 
+
 ##### Player hitbox functions #####
 
 ## Signal function: Player collides with enemy
