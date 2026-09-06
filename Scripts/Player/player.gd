@@ -42,6 +42,8 @@ func _ready() -> void:
 
 ## Physics Process: Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	DebugOverlay.add_stat("Hitbox1", "monitoring", hitbox_1.monitoring)
+	DebugOverlay.add_stat("Hitbox2", "monitoring", hitbox_2.monitoring)
 	process_state(delta)
 	move_and_slide()
 
