@@ -1,0 +1,18 @@
+[gd_resource type="AudioBusLayout" format=3 uid="uid://cgip5uxh23p6e"]
+
+[sub_resource type="AudioEffectStereoEnhance" id="AudioEffectStereoEnhance_j3pel"]
+resource_name = "StereoEnhance"
+
+[sub_resource type="AudioEffectAmplify" id="AudioEffectAmplify_j3pel"]
+resource_name = "Amplify"
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_j3pel"]
+resource_name = "Filter"
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectStereoEnhance_j3pel")
+bus/0/effect/0/enabled = true
+bus/0/effect/1/effect = SubResource("AudioEffectAmplify_j3pel")
+bus/0/effect/1/enabled = true
+bus/0/effect/2/effect = SubResource("AudioEffectFilter_j3pel")
+bus/0/effect/2/enabled = true

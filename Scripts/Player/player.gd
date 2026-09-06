@@ -8,8 +8,10 @@ class_name Player
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
 @onready var first_attack_colldawn: Timer = $FirstAttackColldawn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var hitbox_1: Area2D = $Hitbox1
-@onready var hitbox_2: Area2D = $Hitbox2
+@onready var sword_cut_line_1: Sprite2D = $SwordCutLine1
+@onready var sword_cut_line_2: Sprite2D = $SwordCutLine2
+@onready var hitbox_1: Area2D = $SwordCutLine1/Hitbox1
+@onready var hitbox_2: Area2D = $SwordCutLine2/Hitbox2
 
 ## States
 enum STATE {
@@ -118,9 +120,15 @@ func handle_movement() -> void:
 		player_animation.flip_h = input_direction > 0
 		
 		# Turn hitboxes to player direction
-		hitbox_1.scale.x = -input_direction
-		hitbox_2.scale.x = -input_direction
-	
+		sword_cut_line_1.scale.x = -input_direction
+		sword_cut_line_2.scale.x = -input_direction
+		if player_animation.flip_h:
+			sword_cut_line_1.position.x = 5.0
+			sword_cut_line_2.position.x = 2.0
+		else:
+			sword_cut_line_1.position.x = -5.0
+			sword_cut_line_2.position.x = -2.0
+		
 	velocity.x = input_direction * X_VELOCITY
 
 ## Handle Attack
@@ -138,19 +146,19 @@ func handle_attack() -> void:
 			can_attack = false
 
 ## Deal Damage
-func deal_damage():
-	var overlapping_areas: Array[Area2D]
-	
-	# Get all areas that touch the hitbox1
-	if animation_player.current_animation == "Attack" or animation_player.current_animation == "Jump_Attack":
-		overlapping_areas = hitbox_1.get_overlapping_areas()
-	# Get all areas that touch the hitbox2
-	elif animation_player.current_animation == "Double_Attack" or animation_player.current_animation == "Jump_Double_Attack":
-		overlapping_areas = hitbox_2.get_overlapping_areas()
-	
-	for area in overlapping_areas:
-		if area.is_in_group("Hurtbox"):
-			area.get_hit()
+#func deal_damage():
+	#var overlapping_areas: Array[Area2D]
+	#
+	## Get all areas that touch the hitbox1
+	#if animation_player.current_animation == "Attack" or animation_player.current_animation == "Jump_Attack":
+		#overlapping_areas = hitbox_1.get_overlapping_areas()
+	## Get all areas that touch the hitbox2
+	#elif animation_player.current_animation == "Double_Attack" or animation_player.current_animation == "Jump_Double_Attack":
+		#overlapping_areas = hitbox_2.get_overlapping_areas()
+	#
+	#for area in overlapping_areas:
+		#if area.is_in_group("Hurtbox"):
+			#area.get_hit()
 
 ## Reset Attacks
 func reset_attacks():
@@ -196,3 +204,14 @@ func _on_animation_finished(anim_name: String):
 ## When colldawn timer reaches the end do something
 func _on_first_attack_colldawn_timeout() -> void:
 	can_attack = true
+
+
+func _on_hitbox_1_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Hurtbox"):
+			if area.has_method("get_hit"):
+				area.get_hit()
+
+func _on_hitbox_2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Hurtbox"):
+		if area.has_method("get_hit"):
+			area.get_hit()

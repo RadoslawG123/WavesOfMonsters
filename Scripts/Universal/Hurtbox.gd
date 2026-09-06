@@ -58,7 +58,7 @@ func knockback():
 		knockback_tween = create_tween()
 		
 		# Knockback move formula (including player velocity while hitting)
-		owner.X_VELOCITY = push_force * float(player.hitbox_1.scale.x) * (abs(player.velocity.x*0.01)+1)
+		owner.X_VELOCITY = push_force * float(player.sword_cut_line_1.scale.x) * (abs(player.velocity.x*0.01)+1)
 		
 		# Smooth slowing down while knockback
 		knockback_tween.tween_property(owner, "X_VELOCITY", 0, push_timer.wait_time)
