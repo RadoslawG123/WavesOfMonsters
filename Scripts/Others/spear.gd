@@ -29,6 +29,7 @@ func _ready() -> void:
 
 ## _Physics_process: Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
+	DebugOverlay.add_stat("Spear", "spear.monitoring", spear.monitoring)
 	if freeze:
 		return
 	t += delta
@@ -52,24 +53,34 @@ func _physics_process(delta: float) -> void:
 
 ## Change Flight Path
 func change_flight_path():
+	is_deflected = true
 	X_0 = global_position.x
 	Y_0 = global_position.y
 	V_0x = throw_force * cos(deg_to_rad(throw_angle))
 	t = 0
 
+## Disable Spear
+func Disable_spear():
+	freeze = true
+	set_deferred("monitoring", false)
+	spear.remove_from_group("Spear")
+	animation_player.play("Disappear")
 
 ##### Signal functions #####
 
 ## Signal funciton: Spear hits the ground
 func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
-		freeze = true
-		spear.remove_from_group("Enemy")
-		animation_player.play("Disappear")
+		Disable_spear()
 
 ## Signal function: Player hits the spear by his weapon hitbox to reflect it
 func _on_player_hitbox_entered(area: Area2D) -> void:
 	# If area is hitbox and hitbox have right direction
 	if area.is_in_group("Hitbox") and area.get_parent().scale.x == -1:
 		change_flight_path()
-		
+
+func _on_enemy_entered(area: Area2D) -> void:
+	# If area is hurtbox and the spear is deflected
+	if area.is_in_group("Hurtbox") and is_deflected:
+		Disable_spear()
+		area.die()

@@ -42,8 +42,8 @@ func _ready() -> void:
 
 ## Physics Process: Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	DebugOverlay.add_stat("Hitbox1", "scale.x", hitbox_1.scale.x)
-	DebugOverlay.add_stat("Hitbox2", "scale.x", hitbox_2.scale.x)
+	#DebugOverlay.add_stat("Hitbox1", "scale.x", hitbox_1.scale.x)
+	#DebugOverlay.add_stat("Hitbox2", "scale.x", hitbox_2.scale.x)
 	#DebugOverlay.add_stat("sword_cut_line_1", "visible", sword_cut_line_1.visible)
 	#DebugOverlay.add_stat("Hitbox2", "monitoring", hitbox_2.monitoring)
 	#DebugOverlay.add_stat("sword_cut_line_2", "visible", sword_cut_line_2.visible)
@@ -217,8 +217,8 @@ func _on_first_attack_colldawn_timeout() -> void:
 
 func _on_hitbox_1_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Hurtbox"):
-			if area.has_method("get_hit"):
-				area.get_hit()
+		if area.has_method("get_hit"):
+			area.get_hit()
 
 func _on_hitbox_2_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Hurtbox"):

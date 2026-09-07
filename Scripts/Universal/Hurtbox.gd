@@ -93,5 +93,5 @@ func _on_player_enemy_entered(body: Node2D) -> void:
 
 ## Signal function: Player collides with projectile
 func _on_player_projectile_entered(area: Area2D) -> void:
-	if is_player and area.is_in_group("Enemy"):
+	if is_player and area.is_in_group("Spear"):
 		get_hit()
