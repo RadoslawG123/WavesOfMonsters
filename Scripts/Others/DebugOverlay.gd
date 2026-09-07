@@ -13,14 +13,29 @@ var label: Label
 func _ready() -> void:
 	layer = 128
 	
-	# Creating black container with opacity
+	# 1. Tworzymy kontener
 	panel_container = PanelContainer.new()
-	panel_container.modulate = Color(0, 0, 0, 0.9)
-	panel_container.position = Vector2(10, 10) # Margines od lewego górnego rogu
+	panel_container.position = Vector2(2, 2)
+	
+	# Tworzymy niestandardowy wygląd tła (StyleBox), żeby zmniejszyć marginesy
+	var style = StyleBoxFlat.new()
+	style.bg_color = Color(0, 0, 0, 0.6) # Czarny, półprzezroczysty
+	# Ekstremalnie małe marginesy (domyślnie Godot daje tu dużo pustej przestrzeni)
+	style.content_margin_left = 4
+	style.content_margin_right = 4
+	style.content_margin_top = 4
+	style.content_margin_bottom = 4
+	
+	panel_container.add_theme_stylebox_override("panel", style)
 	add_child(panel_container)
 	
-	# Creating text
+	# 2. Tworzymy tekst
 	label = Label.new()
+	# Nadpisujemy rozmiar czcionki na bardzo mały (idealny do pixel artu)
+	label.add_theme_font_size_override("font_size", 10) 
+	# Zmniejszamy odstępy między linijkami
+	label.add_theme_constant_override("line_spacing", 0) 
+	
 	panel_container.add_child(label)
 	
 	visible = false

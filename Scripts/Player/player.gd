@@ -42,8 +42,11 @@ func _ready() -> void:
 
 ## Physics Process: Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	DebugOverlay.add_stat("Hitbox1", "monitoring", hitbox_1.monitoring)
-	DebugOverlay.add_stat("Hitbox2", "monitoring", hitbox_2.monitoring)
+	DebugOverlay.add_stat("Hitbox1", "scale.x", hitbox_1.scale.x)
+	DebugOverlay.add_stat("Hitbox2", "scale.x", hitbox_2.scale.x)
+	#DebugOverlay.add_stat("sword_cut_line_1", "visible", sword_cut_line_1.visible)
+	#DebugOverlay.add_stat("Hitbox2", "monitoring", hitbox_2.monitoring)
+	#DebugOverlay.add_stat("sword_cut_line_2", "visible", sword_cut_line_2.visible)
 	process_state(delta)
 	move_and_slide()
 
@@ -117,7 +120,7 @@ func process_state(delta: float) -> void:
 ## Handle Movement
 func handle_movement() -> void:
 	input_direction = signf(Input.get_axis("Left", "Right"))
-	
+	DebugOverlay.add_stat("input_direction", "input_direction", input_direction)
 	if input_direction:
 		player_animation.flip_h = input_direction > 0
 		
@@ -167,6 +170,10 @@ func reset_attacks():
 	is_attacking = false
 	attack_combo = false
 	can_attack = true
+	sword_cut_line_1.visible = false
+	hitbox_1.monitoring = false
+	sword_cut_line_2.visible = false
+	hitbox_2.monitoring = false
 
 
 ##### Signal Functions #####

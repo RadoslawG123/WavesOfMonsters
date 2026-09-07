@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://b56k6ert87xs0" path="res://Assets/Player/Player_Jump.png" id="2_dewec"]
 [ext_resource type="Texture2D" uid="uid://dqcurqr8r04xx" path="res://Assets/Player/Player_Attack_v2.png" id="3_0kmp4"]
 [ext_resource type="Texture2D" uid="uid://b4gun12gwefvt" path="res://Assets/Player/Player_Walk.png" id="4_5ixxa"]
-[ext_resource type="Texture2D" uid="uid://c15mti2cbuuq6" path="res://Assets/Player/Player_Jump_Attack.png" id="5_nn08x"]
+[ext_resource type="Texture2D" uid="uid://slkmyr1c5bsb" path="res://Assets/Player/Player_Jump_Attack_v2.png" id="6_epg6k"]
 [ext_resource type="PackedScene" uid="uid://c2ip3m0bosu7l" path="res://Scenes/Universal/hitbox_1.tscn" id="8_yoq75"]
 [ext_resource type="PackedScene" uid="uid://c0iocryvpm0un" path="res://Scenes/Universal/hitbox_2.tscn" id="9_ksbbd"]
 [ext_resource type="Texture2D" uid="uid://cj0t76fus0y6q" path="res://Assets/Player/Sword_cut_line_1.png" id="10_epg6k"]
@@ -83,28 +83,28 @@ region = Rect2(26, 0, 26, 26)
 atlas = ExtResource("2_dewec")
 region = Rect2(52, 0, 26, 26)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ulo2v"]
-atlas = ExtResource("5_nn08x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_0objx"]
+atlas = ExtResource("6_epg6k")
 region = Rect2(0, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_1iu4k"]
-atlas = ExtResource("5_nn08x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_w71ue"]
+atlas = ExtResource("6_epg6k")
 region = Rect2(36, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m0x7a"]
-atlas = ExtResource("5_nn08x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_1e6p3"]
+atlas = ExtResource("6_epg6k")
 region = Rect2(72, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5v66d"]
-atlas = ExtResource("5_nn08x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_yb677"]
+atlas = ExtResource("6_epg6k")
 region = Rect2(108, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7x0b"]
-atlas = ExtResource("5_nn08x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_8cj01"]
+atlas = ExtResource("6_epg6k")
 region = Rect2(144, 0, 36, 36)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kih0c"]
-atlas = ExtResource("5_nn08x")
+[sub_resource type="AtlasTexture" id="AtlasTexture_i2g7t"]
+atlas = ExtResource("6_epg6k")
 region = Rect2(180, 0, 36, 36)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_megsn"]
@@ -209,16 +209,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 0.2,
-"texture": SubResource("AtlasTexture_ulo2v")
+"texture": SubResource("AtlasTexture_0objx")
 }, {
 "duration": 0.2,
-"texture": SubResource("AtlasTexture_1iu4k")
+"texture": SubResource("AtlasTexture_w71ue")
 }, {
 "duration": 0.8,
-"texture": SubResource("AtlasTexture_m0x7a")
+"texture": SubResource("AtlasTexture_1e6p3")
 }, {
 "duration": 0.8,
-"texture": SubResource("AtlasTexture_5v66d")
+"texture": SubResource("AtlasTexture_yb677")
 }],
 "loop": 0,
 "name": &"Jump_Attack",
@@ -226,10 +226,10 @@ animations = [{
 }, {
 "frames": [{
 "duration": 0.8,
-"texture": SubResource("AtlasTexture_u7x0b")
+"texture": SubResource("AtlasTexture_8cj01")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_kih0c")
+"texture": SubResource("AtlasTexture_i2g7t")
 }],
 "loop": 0,
 "name": &"Jump_Double_Attack",
@@ -337,6 +337,18 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwordCutLine1/Hitbox1:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_yoq75"]
 resource_name = "Double_Attack"
@@ -411,6 +423,18 @@ tracks/5/path = NodePath("SwordCutLine2:visible")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwordCutLine2/Hitbox2:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -640,11 +664,35 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SwordCutLine1/Hitbox1:monitorable")
+tracks/4/path = NodePath("SwordCutLine1/Hitbox1:monitoring")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0.8, 1.2),
+"times": PackedFloat32Array(0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwordCutLine1:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0.8, 1.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwordCutLine1/Hitbox1:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.8, 1.4),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -707,11 +755,35 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SwordCutLine2/Hitbox2:monitorable")
+tracks/4/path = NodePath("SwordCutLine2/Hitbox2:monitoring")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.8),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("SwordCutLine2:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SwordCutLine2/Hitbox2:monitorable")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -915,7 +987,6 @@ texture = ExtResource("12_0u84n")
 
 [node name="Hitbox2" parent="SwordCutLine2" unique_id=606897665 instance=ExtResource("9_ksbbd")]
 visible = false
-monitoring = false
 
 [node name="Hitbox2Collider" type="CollisionPolygon2D" parent="SwordCutLine2/Hitbox2" unique_id=1726227702]
 position = Vector2(0.07880509, 1.8750678)
