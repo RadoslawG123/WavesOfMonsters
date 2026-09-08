@@ -971,7 +971,6 @@ position = Vector2(-5, 0)
 texture = ExtResource("10_epg6k")
 
 [node name="Hitbox1" parent="SwordCutLine1" unique_id=498748019 instance=ExtResource("8_yoq75")]
-visible = false
 collision_mask = 48
 monitoring = false
 
@@ -986,7 +985,6 @@ position = Vector2(-2, 0)
 texture = ExtResource("12_0u84n")
 
 [node name="Hitbox2" parent="SwordCutLine2" unique_id=606897665 instance=ExtResource("9_ksbbd")]
-visible = false
 
 [node name="Hitbox2Collider" type="CollisionPolygon2D" parent="SwordCutLine2/Hitbox2" unique_id=1726227702]
 position = Vector2(0.07880509, 1.8750678)

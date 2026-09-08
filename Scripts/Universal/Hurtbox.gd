@@ -7,6 +7,7 @@ class_name Hurtbox
 ## Onready variables
 @onready var health_component: HealthComponent = $"../HealthComponent"
 @onready var push_timer: Timer = $PushTimer
+@onready var hit_stop_timer: Timer = $HitStopTimer
 
 ## Export variables
 @export var is_player := false
@@ -17,19 +18,24 @@ class_name Hurtbox
 var X_VELOCITY_shelf: float
 var knockback_tween: Tween
 
-## Player scene variable
+## Main scene variables
 var player: Player
+var camera: Camera2D
 
 ##### Main functions #####
 
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready():
+	camera = get_tree().get_first_node_in_group("Camera")
 	player = get_tree().get_first_node_in_group("Player")
 	X_VELOCITY_shelf = owner.X_VELOCITY
 
 ## GET HIT
 func get_hit():
 	if health_component:
+		Engine.time_scale = 0.1
+		camera.offset = Vector2(0.05, 0.05)
+		hit_stop_timer.start()
 		health_component.received_damage()
 		
 		if health_component.health_amount <= 0:
@@ -82,6 +88,11 @@ func flash_white():
 ## Signal function: When push_timer reaches the end give back normal velocity to object
 func _on_push_timer_timeout() -> void:
 	owner.X_VELOCITY = X_VELOCITY_shelf
+
+func _on_hit_stop_timer_timeout() -> void:
+	DebugOverlay.add_stat("Engine", "time_scale", Engine.time_scale)
+	Engine.time_scale = 1.0
+	camera.offset = Vector2(0.0,0.0)
 
 
 ##### Player hitbox functions #####

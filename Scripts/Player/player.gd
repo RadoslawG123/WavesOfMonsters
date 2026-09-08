@@ -33,6 +33,7 @@ var is_attacking := false
 var attack_combo := false
 var active_state := STATE.FALL
 var input_direction: float
+var y_velocity_shelf: float
 
 ##### Main functions #####
 

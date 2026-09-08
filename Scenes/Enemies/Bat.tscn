@@ -143,7 +143,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r1vj8"]
-size = Vector2(13, 7.5)
+size = Vector2(16.25, 9.5)
 
 [node name="Bat" type="CharacterBody2D" unique_id=1808204833 groups=["Enemy"]]
 collision_layer = 2
@@ -160,7 +160,6 @@ libraries/ = SubResource("AnimationLibrary_laydv")
 speed_scale = 4.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189754203]
-position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_r1vj8")
 
 [node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("2_u58sa")]
@@ -171,5 +170,4 @@ collision_mask = 40
 sprite = NodePath("../AnimatedSprite2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1791558893]
-position = Vector2(0, 0.75)
 shape = SubResource("RectangleShape2D_r1vj8")

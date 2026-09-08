@@ -36,6 +36,7 @@ Hurtbox=""
 Enemy=""
 Player=""
 Spear=""
+Camera=""
 
 [input]
 
