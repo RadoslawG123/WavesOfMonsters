@@ -92,7 +92,7 @@ func process_state(delta: float) -> void:
 			
 			handle_attack()
 			handle_movement()
-			
+
 			if not is_on_floor():
 				reset_attacks()
 				switch_state(STATE.FALL)

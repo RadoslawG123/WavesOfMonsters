@@ -31,7 +31,6 @@ func _ready() -> void:
 
 ## _Physics_process: Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(_delta: float) -> void:
-	DebugOverlay.add_stat("GOBLIN", "X_VELOCITY", X_VELOCITY)
 	if not is_on_floor():
 		velocity.y += GRAVITY
 		
