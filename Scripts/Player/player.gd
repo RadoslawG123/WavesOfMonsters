@@ -126,8 +126,8 @@ func handle_movement() -> void:
 		player_animation.flip_h = input_direction > 0
 		
 		# Turn hitboxes to player direction
-		sword_cut_line_1.scale.x = -input_direction
-		sword_cut_line_2.scale.x = -input_direction
+		sword_cut_line_1.scale.x = -input_direction * abs(sword_cut_line_1.scale.x)
+		sword_cut_line_2.scale.x = -input_direction * abs(sword_cut_line_1.scale.x)
 		if player_animation.flip_h:
 			sword_cut_line_1.position.x = 5.0
 			sword_cut_line_2.position.x = 2.0

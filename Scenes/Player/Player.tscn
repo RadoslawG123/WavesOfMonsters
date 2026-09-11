@@ -968,6 +968,7 @@ shape = SubResource("RectangleShape2D_qvbvp")
 [node name="SwordCutLine1" type="Sprite2D" parent="." unique_id=1542348948]
 visible = false
 position = Vector2(-5, 0)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("10_epg6k")
 
 [node name="Hitbox1" parent="SwordCutLine1" unique_id=498748019 instance=ExtResource("8_yoq75")]
@@ -982,6 +983,7 @@ polygon = PackedVector2Array(2.3076925, 0, 2, 4, 3, 4, 3, 7, 4, 7, 4, 9, 5, 9, 5
 [node name="SwordCutLine2" type="Sprite2D" parent="." unique_id=379287760]
 visible = false
 position = Vector2(-2, 0)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("12_0u84n")
 
 [node name="Hitbox2" parent="SwordCutLine2" unique_id=606897665 instance=ExtResource("9_ksbbd")]

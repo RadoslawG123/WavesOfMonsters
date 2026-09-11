@@ -76,7 +76,7 @@ func _on_body_entered(body: Node2D) -> void:
 ## Signal function: Player hits the spear by his weapon hitbox to reflect it
 func _on_player_hitbox_entered(area: Area2D) -> void:
 	# If area is hitbox and hitbox have right direction
-	if area.is_in_group("Hitbox") and area.get_parent().scale.x == -1:
+	if area.is_in_group("Hitbox") and area.get_parent().scale.x < 0:
 		change_flight_path()
 
 func _on_enemy_entered(area: Area2D) -> void:
