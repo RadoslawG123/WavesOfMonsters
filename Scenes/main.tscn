@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ca2qkwsd8in86" path="res://Assets/Tileset/GrassLand/Background/GrassLand_Background_Guide.png" id="5_kry3j"]
 [ext_resource type="PackedScene" uid="uid://bj1bs61eh85y4" path="res://Scenes/Others/monster_generator.tscn" id="6_21xkr"]
 [ext_resource type="AudioStream" uid="uid://dnjnobqhmqxx6" path="res://Assets/Audio/WOF_v1.mp3" id="7_6bp64"]
+[ext_resource type="PackedScene" uid="uid://bct0c4gv4uebg" path="res://Scenes/Enemies/Slime.tscn" id="8_344ge"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_21xkr"]
 texture = ExtResource("3_jjvhh")
@@ -146,3 +147,6 @@ parameters/looping = true
 
 [node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
 position = Vector2(394, -13)
+
+[node name="Slime" parent="." unique_id=1997628686 instance=ExtResource("8_344ge")]
+position = Vector2(241, -101)
