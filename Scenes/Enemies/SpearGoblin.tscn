@@ -439,9 +439,10 @@ shape = SubResource("RectangleShape2D_vhguj")
 script = ExtResource("2_qn1ai")
 health_amount = 3
 
-[node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("4_f3wi3")]
+[node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite", "enemy_body") instance=ExtResource("4_f3wi3")]
 collision_mask = 40
 sprite = NodePath("../Animation")
+enemy_body = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=597846441]
 visible = false
