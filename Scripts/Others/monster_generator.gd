@@ -11,13 +11,14 @@ extends Area2D
 ## Export variables
 @export var spear_goblin: PackedScene
 @export var bat: PackedScene
+@export var slime: PackedScene
 
 
 ##### Main functions #####
 
 ## Spawn Monster
 func spawn_monster():
-	var random_monster = [spear_goblin, bat].pick_random()
+	var random_monster = [spear_goblin, bat, slime].pick_random()
 	var new_monster
 	
 	if random_monster == spear_goblin:
@@ -32,6 +33,11 @@ func spawn_monster():
 		var random_position_y = randf_range(edge_positions["top"], edge_positions["bottom"])
 
 		new_monster.global_position = Vector2(sky_spawn_position.global_position.x, random_position_y)
+		get_tree().current_scene.add_child(new_monster)
+	elif random_monster == slime:
+		new_monster = slime.instantiate()
+
+		new_monster.global_position = floor_spawn_position.global_position
 		get_tree().current_scene.add_child(new_monster)
 
 ## Get Edge Positions: sky spawn global edges positions
