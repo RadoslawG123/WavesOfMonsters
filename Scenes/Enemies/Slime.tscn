@@ -11,6 +11,7 @@
 shader = ExtResource("6_jus8j")
 shader_parameter/flash_modifier = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_modulate = Color(0.89492244, 0.89492244, 0.8949223, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ua82p"]
 atlas = ExtResource("1_kexyb")
@@ -219,6 +220,7 @@ animation = &"Jump"
 autoplay = "Idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044470714]
+visible = false
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_r1vj8")
 
@@ -228,6 +230,7 @@ libraries/ = SubResource("AnimationLibrary_i418a")
 [node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("4_otd3f")]
 
 [node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite", "enemy_body") instance=ExtResource("5_jus8j")]
+visible = false
 sprite = NodePath("../AnimatedSprite2D")
 enemy_body = NodePath("..")
 

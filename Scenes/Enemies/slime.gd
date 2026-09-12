@@ -7,7 +7,7 @@ var X_DECELERATION := 20.0
 const FALL_GRAVITY := 500.0
 const FALL_VELOCITY := 200.0
 const JUMP_VELOCITY := -200.0
-const JUMP_DECELERATION := 700.0
+const JUMP_DECELERATION := 10.0
 
 ## States
 enum STATE {

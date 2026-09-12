@@ -145,8 +145,8 @@ stream = ExtResource("7_6bp64")
 autoplay = true
 parameters/looping = true
 
-[node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
-position = Vector2(394, -13)
-
 [node name="Slime" parent="." unique_id=1997628686 instance=ExtResource("8_344ge")]
 position = Vector2(247, -28)
+
+[node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
+position = Vector2(394, -13)
