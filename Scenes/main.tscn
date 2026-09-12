@@ -149,4 +149,4 @@ parameters/looping = true
 position = Vector2(394, -13)
 
 [node name="Slime" parent="." unique_id=1997628686 instance=ExtResource("8_344ge")]
-position = Vector2(241, -101)
+position = Vector2(247, -28)
