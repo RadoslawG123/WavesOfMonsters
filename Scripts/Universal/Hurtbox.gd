@@ -2,7 +2,7 @@ extends Area2D
 class_name Hurtbox
 
 
-##### Variables #####
+######################################### Variables #########################################
 
 ## Onready variables
 @onready var health_component: HealthComponent = $"../HealthComponent"
@@ -22,7 +22,7 @@ var knockback_tween: Tween
 var player: Player
 var camera: Camera2D
 
-##### Main functions #####
+######################################### Main functions #########################################
 
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready():
@@ -45,6 +45,9 @@ func get_hit():
 		flash_white()
 		knockback()
 		#print("Życie:", health_component.health_amount)
+
+
+######################################### Other functions #########################################
 
 ## DIE
 func die():
@@ -89,18 +92,20 @@ func flash_white():
 		# tween_property (obiekt, "co zmieniamy", wartość_docelowa, czas_w_sekundach)
 		tween.tween_property(sprite.material, "shader_parameter/flash_modifier", 0.0, 0.5)
 
-## Signal function: When knockabck ends give back normal velocity to object
+
+######################################### Signal functions #########################################
+
+## When knockabck ends give back normal velocity to object
 func _on_knockback_ended():
 	owner.X_VELOCITY = X_VELOCITY_shelf
 	enemy_body.set_collision_layer_value(2, true)
 
-## Signal function: When HitStopTimer ends turn on normal time_scale and reset camera offset
+## When HitStopTimer ends turn on normal time_scale and reset camera offset
 func _on_hit_stop_timer_timeout() -> void:
 	Engine.time_scale = 1.0
 	camera.offset = Vector2(0.0,0.0)
 
-
-##### Player hitbox functions #####
+######################################### Player hitbox functions #########################################
 
 ## Signal function: Player collides with enemy
 func _on_player_enemy_entered(body: Node2D) -> void:

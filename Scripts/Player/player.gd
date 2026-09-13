@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 
-##### Variables #####
+######################################### Variables #########################################
 
 ## Onready variables
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
@@ -35,7 +35,8 @@ var active_state := STATE.FALL
 var input_direction: float
 var y_velocity_shelf: float
 
-##### Main functions #####
+
+######################################### Main Functions #########################################
 
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -116,7 +117,7 @@ func process_state(delta: float) -> void:
 				switch_state(STATE.FALL)
 
 
-##### Other functions #####
+######################################### Other Functions #########################################
 
 ## Handle Movement
 func handle_movement() -> void:
@@ -177,7 +178,7 @@ func reset_attacks():
 	hitbox_2.monitoring = false
 
 
-##### Signal Functions #####
+######################################### Signal Functions #########################################
 
 ## When animations finishes do something
 func _on_animation_finished(anim_name: String):

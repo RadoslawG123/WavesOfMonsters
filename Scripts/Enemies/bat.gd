@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Bat
 
 
-##### Variables #####
+######################################### Variables #########################################
 
 ## Onready variables
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -11,7 +11,7 @@ class_name Bat
 @export var X_VELOCITY := 25.0
 
 
-##### Main functions #####
+######################################### Main functions #########################################
 
 ## _ready: Called when the node enters the scene tree for the first time.
 func _ready() -> void:

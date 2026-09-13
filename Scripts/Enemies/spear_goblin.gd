@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name SpearGoblin
 
 
-##### Variables #####
+######################################### Variables #########################################
 
 ## Onready variables
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -18,7 +18,7 @@ class_name SpearGoblin
 var X_VELOCITY_shelf: float
 
 
-##### Main functions #####
+######################################### Main functions #########################################
 
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -38,7 +38,7 @@ func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 
-##### Other functions #####
+######################################### Other functions #########################################
 
 ## Throw Spear: play animation
 func throw_spear():
@@ -62,7 +62,7 @@ func x_velocity_back():
 	X_VELOCITY = X_VELOCITY_shelf
 
 
-##### Signal functions #####
+######################################### Signal functions #########################################
 
 ## Signal Function: If animation (anim_name) finish do something
 func _on_animation_finished(anim_name: StringName) -> void:

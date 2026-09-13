@@ -1,7 +1,7 @@
 extends Area2D
 
 
-##### Variables #####
+######################################### Variables #########################################
 
 ## Onready variables
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -18,6 +18,9 @@ var t := 0.0
 var my_gravity := 150.0
 var freeze := false
 var is_deflected = false
+
+
+######################################### Main functions #########################################
 
 ## Ready: Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -51,6 +54,9 @@ func _physics_process(delta: float) -> void:
 	# Rotate spear in direction of its flight
 	rotation = current_velocity.angle()
 
+
+######################################### Other functions #########################################
+
 ## Change Flight Path
 func change_flight_path():
 	is_deflected = true
@@ -66,19 +72,21 @@ func Disable_spear():
 	spear.remove_from_group("Spear")
 	animation_player.play("Disappear")
 
-##### Signal functions #####
 
-## Signal funciton: Spear hits the ground
+######################################### Signal functions #########################################
+
+## Spear hits the ground
 func _on_body_entered(body: Node2D) -> void:
 	if body is TileMapLayer:
 		Disable_spear()
 
-## Signal function: Player hits the spear by his weapon hitbox to reflect it
+## Player hits the spear by his weapon hitbox to reflect it
 func _on_player_hitbox_entered(area: Area2D) -> void:
 	# If area is hitbox and hitbox have right direction
 	if area.is_in_group("Hitbox") and area.get_parent().scale.x < 0:
 		change_flight_path()
 
+## Spear hits an enemy
 func _on_enemy_entered(area: Area2D) -> void:
 	# If area is hurtbox and the spear is deflected
 	if area.is_in_group("Hurtbox") and is_deflected:

@@ -1,7 +1,7 @@
 extends Area2D
 
 
-##### Variables #####
+######################################### Variables #########################################
 
 ## Onready variables
 @onready var spawn_colldawn: Timer = $SpawnColldawn
@@ -14,7 +14,7 @@ extends Area2D
 @export var slime: PackedScene
 
 
-##### Main functions #####
+######################################### Main functions #########################################
 
 ## Spawn Monster
 func spawn_monster():
@@ -40,6 +40,8 @@ func spawn_monster():
 		new_monster.global_position = floor_spawn_position.global_position
 		get_tree().current_scene.add_child(new_monster)
 
+######################################### Other functions #########################################
+
 ## Get Edge Positions: sky spawn global edges positions
 func get_edge_positions():
 	var edge_positions = {}
@@ -52,6 +54,9 @@ func get_edge_positions():
 		edge_positions["bottom"] = sky_spawn_position.global_position.y + rect_shape.extents.y
 		
 	return edge_positions
+
+
+######################################### Signal functions #########################################
 
 ## Timer Signal function: Emitted when the timer reaches the end
 func _on_spawn_colldawn_timeout() -> void:

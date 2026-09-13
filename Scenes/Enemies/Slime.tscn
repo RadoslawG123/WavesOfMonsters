@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bct0c4gv4uebg"]
 
 [ext_resource type="Texture2D" uid="uid://bxib6eht5e8n0" path="res://Assets/Enemies/Slime/Slime_jump.png" id="1_kexyb"]
-[ext_resource type="Script" uid="uid://dknpyqtm8436d" path="res://Scenes/Enemies/slime.gd" id="1_otd3f"]
+[ext_resource type="Script" uid="uid://dknpyqtm8436d" path="res://Scripts/Enemies/slime.gd" id="1_otd3f"]
 [ext_resource type="Texture2D" uid="uid://cbivayqwblkr5" path="res://Assets/Enemies/Slime/Slime_Idle.png" id="2_s88bi"]
 [ext_resource type="PackedScene" uid="uid://bwdrkmws83sb4" path="res://Scenes/Universal/health_component.tscn" id="4_otd3f"]
 [ext_resource type="PackedScene" uid="uid://bxmx6fmybo61p" path="res://Scenes/Universal/hurtbox.tscn" id="5_jus8j"]
