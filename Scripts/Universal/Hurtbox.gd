@@ -42,6 +42,9 @@ func get_hit():
 			die()
 			return
 			
+		if is_player:
+			UI.change_player_health()
+			
 		flash_white()
 		knockback()
 		#print("Życie:", health_component.health_amount)
@@ -53,6 +56,8 @@ func get_hit():
 func die():
 	if not is_player:
 		# Delete object from main scene
+		get_parent().queue_free()
+	else:
 		get_parent().queue_free()
 
 ## KNOCKBACK

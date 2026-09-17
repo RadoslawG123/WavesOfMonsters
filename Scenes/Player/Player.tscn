@@ -18,6 +18,7 @@
 shader = ExtResource("2_0kmp4")
 shader_parameter/flash_modifier = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5acl"]
 atlas = ExtResource("3_0kmp4")
@@ -954,7 +955,6 @@ libraries/ = SubResource("AnimationLibrary_ksbbd")
 speed_scale = 10.0
 
 [node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("10_ksbbd")]
-health_amount = 999
 
 [node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("10_yoq75")]
 collision_layer = 1

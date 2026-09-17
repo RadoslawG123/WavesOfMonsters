@@ -21,6 +21,7 @@ buses/default_bus_layout="uid://cgip5uxh23p6e"
 [autoload]
 
 DebugOverlay="*uid://brvs0snpvryu7"
+UI="*uid://cg1yk2hisawjf"
 
 [display]
 
