@@ -136,3 +136,5 @@ position = Vector2(490, 233)
 [node name="Player" parent="." unique_id=197770266 instance=ExtResource("4_kry3j")]
 z_index = 1
 position = Vector2(115, 226)
+
+[connection signal="wave_ended" from="MonsterGenerator" to="MonsterGenerator" method="_on_wave_ended"]

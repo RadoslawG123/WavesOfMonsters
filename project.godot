@@ -48,6 +48,7 @@ Enemy=""
 Player=""
 Spear=""
 Camera=""
+MonsterGenerator=""
 
 [input]
 

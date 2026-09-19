@@ -1,6 +1,9 @@
 extends Area2D
 class_name Hurtbox
 
+######################################### Signals #########################################
+
+signal enemy_died()
 
 ######################################### Variables #########################################
 
@@ -55,6 +58,9 @@ func get_hit():
 ## DIE
 func die():
 	if not is_player:
+		# When enemy dies emit signal to monster_generator script
+		enemy_died.emit()
+		
 		# Delete object from main scene
 		get_parent().queue_free()
 	else:

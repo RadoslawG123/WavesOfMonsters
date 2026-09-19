@@ -9,15 +9,14 @@ script = ExtResource("1_nxvpl")
 [node name="Control" type="Control" parent="." unique_id=626079133]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 480.0
+offset_bottom = 270.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1776438929]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = 21.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -49,3 +48,17 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("2_dewlx")
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer" unique_id=1174673445]
+custom_minimum_size = Vector2(100, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="WaveCounterLabel" type="RichTextLabel" parent="Control/MarginContainer/MarginContainer2" unique_id=839398556]
+layout_mode = 2
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 20
+bbcode_enabled = true
+text = "[center][b]WAVE 1"

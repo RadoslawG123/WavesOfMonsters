@@ -11,6 +11,7 @@ resource_local_to_scene = true
 shader = ExtResource("2_fgnpe")
 shader_parameter/flash_modifier = 0.0
 shader_parameter/flash_color = Color(1, 1, 1, 1)
+shader_parameter/custom_modulate = Color(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4yo7"]
 atlas = ExtResource("1_xfaav")
@@ -159,12 +160,6 @@ animation = &"Fly"
 libraries/ = SubResource("AnimationLibrary_laydv")
 speed_scale = 4.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189754203]
-shape = SubResource("RectangleShape2D_r1vj8")
-
-[node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("2_u58sa")]
-health_amount = 2
-
 [node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite", "enemy_body") instance=ExtResource("3_4bhup")]
 collision_mask = 40
 sprite = NodePath("../AnimatedSprite2D")
@@ -172,3 +167,9 @@ enemy_body = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1791558893]
 shape = SubResource("RectangleShape2D_r1vj8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1189754203]
+shape = SubResource("RectangleShape2D_r1vj8")
+
+[node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("2_u58sa")]
+health_amount = 2
