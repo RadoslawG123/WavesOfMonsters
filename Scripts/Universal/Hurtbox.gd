@@ -111,10 +111,15 @@ func _on_knockback_ended():
 	owner.X_VELOCITY = X_VELOCITY_shelf
 	enemy_body.set_collision_layer_value(2, true)
 
+func _on_village_enemy_entered(area: Area2D) -> void:
+	if area.is_in_group("Village"):
+		die()
+
 ## When HitStopTimer ends turn on normal time_scale and reset camera offset
 func _on_hit_stop_timer_timeout() -> void:
 	Engine.time_scale = 1.0
 	camera.offset = Vector2(0.0,0.0)
+
 
 ######################################### Player hitbox functions #########################################
 

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://1yffxgfqptvt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r1vj8"]
+size = Vector2(20, 70)
+
+[node name="Village" type="Area2D" unique_id=1524862778 groups=["Village"]]
+collision_layer = 64
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1758130781]
+position = Vector2(0, -25)
+shape = SubResource("RectangleShape2D_r1vj8")
+debug_color = Color(0.8811212, 0.104575716, 0.7783963, 0.41960785)

@@ -32,7 +32,9 @@ var can_attack := true
 var is_attacking := false
 var attack_combo := false
 var active_state := STATE.FALL
-var input_direction: float
+var input_direction_move: float
+var input_direction_turn_raw := 1.0
+var input_direction_turn := 1.0
 var y_velocity_shelf: float
 
 
@@ -84,7 +86,7 @@ func process_state(delta: float) -> void:
 			
 		STATE.FLOOR:
 			if not is_attacking:
-				if Input.get_axis("Left", "Right"):
+				if Input.get_axis("LeftMove", "RightMove"):
 					animation_player.play("Walk")
 				else:
 					animation_player.play("Idle")
@@ -121,14 +123,18 @@ func process_state(delta: float) -> void:
 
 ## Handle Movement
 func handle_movement() -> void:
-	input_direction = signf(Input.get_axis("Left", "Right"))
-	DebugOverlay.add_stat("input_direction", "input_direction", input_direction)
-	if input_direction:
-		player_animation.flip_h = input_direction > 0
+	input_direction_move = signf(Input.get_axis("LeftMove", "RightMove"))
+	input_direction_turn_raw = Input.get_axis("LeftTurn", "RightTurn")
+	
+	if input_direction_turn_raw != 0.0:
+		input_direction_turn = signf(input_direction_turn_raw)
+	
+	if input_direction_move or input_direction_turn:
+		player_animation.flip_h = input_direction_turn > 0
 		
 		# Turn hitboxes to player direction
-		sword_cut_line_1.scale.x = -input_direction * abs(sword_cut_line_1.scale.x)
-		sword_cut_line_2.scale.x = -input_direction * abs(sword_cut_line_1.scale.x)
+		sword_cut_line_1.scale.x = -input_direction_turn * abs(sword_cut_line_1.scale.x)
+		sword_cut_line_2.scale.x = -input_direction_turn * abs(sword_cut_line_1.scale.x)
 		if player_animation.flip_h:
 			sword_cut_line_1.position.x = 5.0
 			sword_cut_line_2.position.x = 2.0
@@ -136,7 +142,7 @@ func handle_movement() -> void:
 			sword_cut_line_1.position.x = -5.0
 			sword_cut_line_2.position.x = -2.0
 		
-	velocity.x = input_direction * X_VELOCITY
+	velocity.x = input_direction_move * X_VELOCITY
 
 ## Handle Attack
 func handle_attack() -> void:

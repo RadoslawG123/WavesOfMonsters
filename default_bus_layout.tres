@@ -9,6 +9,9 @@ resource_name = "Amplify"
 [sub_resource type="AudioEffectFilter" id="AudioEffectFilter_j3pel"]
 resource_name = "Filter"
 
+[sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
+resource_name = "Chorus"
+
 [resource]
 bus/0/effect/0/effect = SubResource("AudioEffectStereoEnhance_j3pel")
 bus/0/effect/0/enabled = true
@@ -16,3 +19,5 @@ bus/0/effect/1/effect = SubResource("AudioEffectAmplify_j3pel")
 bus/0/effect/1/enabled = true
 bus/0/effect/2/effect = SubResource("AudioEffectFilter_j3pel")
 bus/0/effect/2/enabled = true
+bus/0/effect/3/effect = SubResource("AudioEffectChorus_j3pel")
+bus/0/effect/3/enabled = false
