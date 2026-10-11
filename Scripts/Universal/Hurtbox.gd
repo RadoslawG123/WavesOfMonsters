@@ -37,7 +37,7 @@ func _ready():
 func get_hit():
 	if health_component:
 		Engine.time_scale = 0.1
-		camera.offset = Vector2(0.05, 0.05)
+		camera.offset = Vector2(0.9, 0.9)
 		hit_stop_timer.start()
 		health_component.received_damage()
 		
@@ -63,6 +63,8 @@ func die():
 		
 		# Delete object from main scene
 		get_parent().queue_free()
+		if Engine.time_scale == 0.1:
+			Engine.time_scale = 1.0
 	else:
 		get_parent().queue_free()
 
