@@ -20,33 +20,52 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer" unique_id=1606447729]
+[node name="MarginContainer1" type="MarginContainer" parent="Control/MarginContainer" unique_id=1606447729]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 theme_override_constants/margin_left = 5
 theme_override_constants/margin_top = 5
 
-[node name="HeartsContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer" unique_id=774395738]
+[node name="AllHeartsContainer" type="VBoxContainer" parent="Control/MarginContainer/MarginContainer1" unique_id=449968894]
+layout_mode = 2
+
+[node name="PlayerHeartsContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer" unique_id=774395738]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="Heart1" type="TextureRect" parent="Control/MarginContainer/MarginContainer/HeartsContainer" unique_id=2126812237]
+[node name="Heart1" type="TextureRect" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer/PlayerHeartsContainer" unique_id=2126812237]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("2_dewlx")
 
-[node name="Heart2" type="TextureRect" parent="Control/MarginContainer/MarginContainer/HeartsContainer" unique_id=710993722]
+[node name="Heart2" type="TextureRect" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer/PlayerHeartsContainer" unique_id=710993722]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
 texture = ExtResource("2_dewlx")
 
-[node name="Heart3" type="TextureRect" parent="Control/MarginContainer/MarginContainer/HeartsContainer" unique_id=1903278016]
+[node name="Heart3" type="TextureRect" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer/PlayerHeartsContainer" unique_id=1903278016]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 4
+texture = ExtResource("2_dewlx")
+
+[node name="VillageHeartsContainer" type="HBoxContainer" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer" unique_id=307045177]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="Heart1" type="TextureRect" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer/VillageHeartsContainer" unique_id=946412085]
+layout_mode = 2
+texture = ExtResource("2_dewlx")
+
+[node name="Heart2" type="TextureRect" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer/VillageHeartsContainer" unique_id=844652507]
+layout_mode = 2
+texture = ExtResource("2_dewlx")
+
+[node name="Heart3" type="TextureRect" parent="Control/MarginContainer/MarginContainer1/AllHeartsContainer/VillageHeartsContainer" unique_id=1619890957]
+layout_mode = 2
 texture = ExtResource("2_dewlx")
 
 [node name="MarginContainer2" type="MarginContainer" parent="Control/MarginContainer" unique_id=1174673445]
@@ -56,6 +75,7 @@ size_flags_horizontal = 8
 size_flags_vertical = 0
 
 [node name="WaveCounterLabel" type="RichTextLabel" parent="Control/MarginContainer/MarginContainer2" unique_id=839398556]
+unique_name_in_owner = true
 layout_mode = 2
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/normal_font_size = 20

@@ -1,7 +1,8 @@
 extends CanvasLayer
 
-@onready var hearts_container: HBoxContainer = %HeartsContainer
-@onready var wave_counter_label: RichTextLabel = $Control/MarginContainer/MarginContainer2/WaveCounterLabel
+@onready var player_hearts_container: HBoxContainer = %PlayerHeartsContainer
+@onready var village_hearts_container: HBoxContainer = %VillageHeartsContainer
+@onready var wave_counter_label: RichTextLabel = %WaveCounterLabel
 
 var heart_cursor = -1
 var wave: int 
@@ -20,7 +21,7 @@ func change_player_health():
 		await ready
 	
 	if heart_cursor >= -4:
-		var heart = hearts_container.get_child(heart_cursor)
+		var heart = player_hearts_container.get_child(heart_cursor)
 		heart.visible = false
 		heart_cursor -= 1
 

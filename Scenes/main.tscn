@@ -1,6 +1,6 @@
 [gd_scene format=4 uid="uid://upixhthmfdi7"]
 
-[ext_resource type="Texture2D" uid="uid://cch4fp8ctssn3" path="res://Assets/Background/Background_v2.png" id="2_21xkr"]
+[ext_resource type="Texture2D" uid="uid://c4ye3sv1m73js" path="res://Assets/Background/Background_v4.png" id="1_21xkr"]
 [ext_resource type="Texture2D" uid="uid://6o150dfsk3bf" path="res://Assets/Tileset/GrassLand/Terrain/Grassland_Terrain_47Tiles.png" id="3_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://dxej5w0j47va1" path="res://Scenes/Player/Player.tscn" id="4_kry3j"]
 [ext_resource type="PackedScene" uid="uid://1yffxgfqptvt" path="res://Scenes/Others/village.tscn" id="6_6bp64"]
@@ -113,7 +113,7 @@ sources/0 = SubResource("TileSetAtlasSource_21xkr")
 
 [node name="BackgroundV2" type="Sprite2D" parent="." unique_id=123793008]
 position = Vector2(240, 135)
-texture = ExtResource("2_21xkr")
+texture = ExtResource("1_21xkr")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=127768379]
 visible = false
