@@ -113,8 +113,10 @@ func _on_knockback_ended():
 	owner.X_VELOCITY = X_VELOCITY_shelf
 	enemy_body.set_collision_layer_value(2, true)
 
+## When enemy go past the village (somewhere about right border of the main screen)
 func _on_village_enemy_entered(area: Area2D) -> void:
 	if area.is_in_group("Village"):
+		UI.change_village_health()
 		die()
 
 ## When HitStopTimer ends turn on normal time_scale and reset camera offset
