@@ -7,6 +7,7 @@ class_name Player
 ## Onready variables
 @onready var player_animation: AnimatedSprite2D = %PlayerAnimation
 @onready var first_attack_colldawn: Timer = $FirstAttackColldawn
+@onready var insensitivity_colldawn: Timer = $InsensitivityColldawn
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var sword_cut_line_1: Sprite2D = $SwordCutLine1
 @onready var sword_cut_line_2: Sprite2D = $SwordCutLine2

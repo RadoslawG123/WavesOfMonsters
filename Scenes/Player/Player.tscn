@@ -933,6 +933,9 @@ _data = {
 &"Walk": SubResource("Animation_ulo2v")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epg6k"]
+size = Vector2(6, 14)
+
 [node name="Player" type="CharacterBody2D" unique_id=197770266 groups=["Player"]]
 collision_mask = 4
 script = ExtResource("1_kyqiw")
@@ -944,11 +947,17 @@ sprite_frames = SubResource("SpriteFrames_r1vj8")
 animation = &"Attack"
 
 [node name="PlayerCollider" type="CollisionShape2D" parent="." unique_id=1571172263]
+visible = false
 shape = SubResource("RectangleShape2D_qvbvp")
 
 [node name="FirstAttackColldawn" type="Timer" parent="." unique_id=986353876]
 wait_time = 0.5
 one_shot = true
+
+[node name="InsensitivityColldawn" type="Timer" parent="." unique_id=1856140531]
+wait_time = 3.0
+one_shot = true
+ignore_time_scale = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1559140533]
 libraries/ = SubResource("AnimationLibrary_ksbbd")
@@ -956,14 +965,16 @@ speed_scale = 10.0
 
 [node name="HealthComponent" parent="." unique_id=2035992246 instance=ExtResource("10_ksbbd")]
 
-[node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite") instance=ExtResource("10_yoq75")]
+[node name="Hurtbox" parent="." unique_id=1952516124 node_paths=PackedStringArray("sprite", "insensitivity_colldawn") instance=ExtResource("10_yoq75")]
 collision_layer = 1
 collision_mask = 2
 is_player = true
 sprite = NodePath("../PlayerAnimation")
+insensitivity_colldawn = NodePath("../InsensitivityColldawn")
 
-[node name="PlayerCollider2" type="CollisionShape2D" parent="Hurtbox" unique_id=689438582]
-shape = SubResource("RectangleShape2D_qvbvp")
+[node name="HurtboxCollider" parent="Hurtbox" index="0" unique_id=1161186668]
+position = Vector2(0, 0)
+shape = SubResource("RectangleShape2D_epg6k")
 
 [node name="SwordCutLine1" type="Sprite2D" parent="." unique_id=1542348948]
 visible = false
@@ -994,8 +1005,11 @@ scale = Vector2(1.5489131, 1.206713)
 polygon = PackedVector2Array(0, 0, 0, 2, 2, 2, 2, 7, 3, 7, 3, 8, 4, 8, 4, 9, 5, 9, 5, 10, 6, 10, 6, 12, -4, 12, -4, 10, -5, 10, -5, 9, -6, 9, -6, 7, -7, 7, -7, 4, -8, 4, -8, -5, -7, -5, -7, -7, -6, -7, -6, -8, -5, -8, -5, -10, -4, -10, -4, -11, -3, -11, -3, -12, -2, -12, -2, -13, 0, -13, 0, -14, 3, -14, 2.531578, -13.984325, 7.69649, -13.984325, 8.987719, -13.984325, 8.987719, -13.155628, 8.987719, -13.155628, 9, -13, 9, -12, 8, -12, 8, -11, 7, -11, 7, -10, 4, -10, 4, -9, 2, -9, 2, -7, 1, -7, 1, -4, 0, -4)
 
 [connection signal="timeout" from="FirstAttackColldawn" to="." method="_on_first_attack_colldawn_timeout"]
+[connection signal="timeout" from="InsensitivityColldawn" to="Hurtbox" method="_on_insensitivity_colldawn_timeout"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_finished"]
 [connection signal="area_entered" from="Hurtbox" to="Hurtbox" method="_on_player_projectile_entered"]
 [connection signal="body_entered" from="Hurtbox" to="Hurtbox" method="_on_player_enemy_entered"]
 [connection signal="area_entered" from="SwordCutLine1/Hitbox1" to="." method="_on_hitbox_1_area_entered"]
 [connection signal="area_entered" from="SwordCutLine2/Hitbox2" to="." method="_on_hitbox_2_area_entered"]
+
+[editable path="Hurtbox"]

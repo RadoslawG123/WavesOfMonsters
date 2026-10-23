@@ -10,12 +10,14 @@ signal enemy_died()
 ## Onready variables
 @onready var health_component: HealthComponent = $"../HealthComponent"
 @onready var hit_stop_timer: Timer = $HitStopTimer
+@onready var hurtbox_collider: CollisionShape2D = $HurtboxCollider
 
 ## Export variables
 @export var is_player := false
 @export var sprite: Node2D
 @export var enemy_body: CharacterBody2D
 @export var push_force := 130.0
+@export var insensitivity_colldawn: Timer
 
 ## push_back() variables
 var X_VELOCITY_shelf: float
@@ -46,10 +48,12 @@ func get_hit():
 			return
 			
 		if is_player:
+			insensitivity()
 			UI.change_player_health()
 			
 		flash_white()
-		knockback()
+		if not is_player:
+			knockback()
 		#print("Życie:", health_component.health_amount)
 
 
@@ -70,25 +74,29 @@ func die():
 
 ## KNOCKBACK
 func knockback():
-	if not is_player:
-		# Reset knocbkack_tween by killing it, reset push_timer by stopping it
-		if knockback_tween != null:
-			knockback_tween.kill()
-		
-		enemy_body.set_collision_layer_value(2, false)
-		
-		# Craete tween for smooth variable changing
-		knockback_tween = create_tween()
-		
-		# Knockback move formula (including player velocity while hitting)
-		owner.X_VELOCITY = push_force * float(player.sword_cut_line_1.scale.x) * (abs(player.velocity.x*0.01)+1)
-		
-		knockback_tween.set_trans(Tween.TRANS_QUAD)
-		knockback_tween.set_ease(Tween.EASE_OUT)
-		
-		# Smooth slowing down while knockback
-		knockback_tween.tween_property(owner, "X_VELOCITY", 0.0, 0.5)
-		knockback_tween.finished.connect(_on_knockback_ended)
+	# Reset knocbkack_tween by killing it, reset push_timer by stopping it
+	if knockback_tween != null:
+		knockback_tween.kill()
+	
+	enemy_body.set_collision_layer_value(2, false)
+	
+	# Craete tween for smooth variable changing
+	knockback_tween = create_tween()
+	
+	# Knockback move formula (including player velocity while hitting)
+	owner.X_VELOCITY = push_force * float(player.sword_cut_line_1.scale.x) * (abs(player.velocity.x*0.01)+1)
+	
+	knockback_tween.set_trans(Tween.TRANS_QUAD)
+	knockback_tween.set_ease(Tween.EASE_OUT)
+	
+	# Smooth slowing down while knockback
+	knockback_tween.tween_property(owner, "X_VELOCITY", 0.0, 0.5)
+	knockback_tween.finished.connect(_on_knockback_ended)
+
+func insensitivity():
+	hurtbox_collider.set_deferred("disabled", true)
+	sprite.material.set_shader_parameter("custom_modulate", Color(1, 1, 1, 0.5))
+	insensitivity_colldawn.start()
 
 ## Test function from gemini
 func flash_white():
@@ -104,7 +112,6 @@ func flash_white():
 		# 2. Płynnie zmniejszamy ten suwak do 0.0 (normy) przez 0.5 sekundy
 		# tween_property (obiekt, "co zmieniamy", wartość_docelowa, czas_w_sekundach)
 		tween.tween_property(sprite.material, "shader_parameter/flash_modifier", 0.0, 0.5)
-
 
 ######################################### Signal functions #########################################
 
@@ -124,6 +131,9 @@ func _on_hit_stop_timer_timeout() -> void:
 	Engine.time_scale = 1.0
 	camera.offset = Vector2(0.0,0.0)
 
+func _on_insensitivity_colldawn_timeout() -> void:
+	hurtbox_collider.set_deferred("disabled", false)
+	sprite.material.set_shader_parameter("custom_modulate", Color(1, 1, 1, 1.0))
 
 ######################################### Player hitbox functions #########################################
 
