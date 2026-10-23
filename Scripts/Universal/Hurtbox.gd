@@ -146,3 +146,4 @@ func _on_player_enemy_entered(body: Node2D) -> void:
 func _on_player_projectile_entered(area: Area2D) -> void:
 	if is_player and area.is_in_group("Spear"):
 		get_hit()
+		area.set_collision_mask_value(4, false)

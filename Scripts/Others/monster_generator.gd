@@ -26,7 +26,7 @@ var wave_enemies: Dictionary[PackedScene, int]
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	wave_enemies = {slime: 2, spear_goblin: 1, bat: 2}
+	wave_enemies = {spear_goblin: 30}
 	spawn_colldawn.start()
 	count_enemies()
 

@@ -983,7 +983,6 @@ scale = Vector2(1.2, 1.2)
 texture = ExtResource("10_epg6k")
 
 [node name="Hitbox1" parent="SwordCutLine1" unique_id=498748019 instance=ExtResource("8_yoq75")]
-collision_mask = 48
 monitoring = false
 
 [node name="Hitbox1Collider" type="CollisionPolygon2D" parent="SwordCutLine1/Hitbox1" unique_id=318971182]
