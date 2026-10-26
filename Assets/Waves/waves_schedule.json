@@ -1,0 +1,27 @@
+{
+	"1": {
+		"slime": 2,
+		"bat": 1,
+		"spear_goblin": 0
+	},
+	"2": {
+		"slime": 3,
+		"bat": 3,
+		"spear_goblin": 0
+	},
+	"3": {
+		"slime": 2,
+		"bat": 3,
+		"spear_goblin": 2
+	},
+	"4": {
+		"slime": 3,
+		"bat": 5,
+		"spear_goblin": 5
+	},
+	"5": {
+		"slime": 5,
+		"bat": 10,
+		"spear_goblin": 10
+	},
+}

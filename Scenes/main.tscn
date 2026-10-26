@@ -128,6 +128,7 @@ process_callback = 0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=1195678830]
 stream = ExtResource("7_6bp64")
+autoplay = true
 parameters/looping = true
 
 [node name="MonsterGenerator" parent="." unique_id=1461595443 instance=ExtResource("6_21xkr")]
